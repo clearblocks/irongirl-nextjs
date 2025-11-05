@@ -36,6 +36,7 @@ Perfect! I've set up your Docker Compose configuration with PostgreSQL and VS Co
 ## Quick Start
 
 1. **Create a `.env` file** (the `.env.example` is blocked by gitignore, so create it manually):
+
 ```bash
 # .env
 POSTGRES_USER=postgres
@@ -47,6 +48,7 @@ DATABASE_URL=postgresql://postgres:postgres@localhost:5432/irongirl
 ```
 
 2. **Start Docker Compose:**
+
 ```bash
 docker-compose up
 ```
