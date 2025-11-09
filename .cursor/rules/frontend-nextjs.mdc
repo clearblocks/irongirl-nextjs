@@ -1,0 +1,25 @@
+---
+alwaysApply: false
+---
+# Frontend Development Rules
+
+## Component Architecture
+- Functional components with hooks only
+- Keep components focused (single responsibility)
+- Extract complex logic into custom hooks
+- Separate container (smart) from presentation (dumb) components
+
+## State Management
+- Use {state management approach}
+- Keep state close to where it's used
+- Lift state only when necessary for sharing
+
+## API Integration
+- All API calls through centralized client
+- Handle loading, error, and success states
+- Use {data fetching library if applicable}
+
+## Styling
+- Use Tailwind
+- Follow design system tokens
+- Ensure responsive design for all components
