@@ -1,5 +1,5 @@
 ---
-alwaysApply: false
+alwaysApply: true
 ---
 # Frontend Development Rules
 
@@ -18,6 +18,9 @@ alwaysApply: false
 - All API calls through centralized client
 - Handle loading, error, and success states
 - Use {data fetching library if applicable}
+
+## Dependencies
+- Always use yarn as the package manager
 
 ## Styling
 - Use Tailwind
