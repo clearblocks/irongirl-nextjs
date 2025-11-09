@@ -1,13 +1,23 @@
-'typography-fontfamily-hero': "Inria Serif";
-'typography-fontsize-base': 15px;
-'typography-fontsize-xs': 11px;
-'typography-fontsize-2xl': 22px;
-'typography-fontfamily-base': "Inter";
-'typography-fontsize-xl': 19px;
-'colors-primary-500': #ff5492;
-'colors-header-500': #ffc9e1;
-'colors-primary-400': #fdeef5;
-'colors-header-400': #f2ebeb;
-'typography-fontfamily-header': "Kaisei Tokumin";
-'typography-lineheight-list': 30px;
-'typography-fontsize-3xl': 26px;
+/* Figma Design Tokens */
+:root {
+  /* Typography - Font Families are provided by Next.js font optimization in layout.tsx */
+  /* Available as: --font-family-base, --font-family-hero, --font-family-header */
+
+  /* Typography - Font Sizes */
+  --font-size-xs: 11px;
+  --font-size-base: 15px;
+  --font-size-xl: 19px;
+  --font-size-2xl: 22px;
+  --font-size-3xl: 26px;
+
+  /* Typography - Line Heights */
+  --line-height-list: 30px;
+
+  /* Colors - Primary */
+  --color-primary-500: #ff5492;
+  --color-primary-400: #fdeef5;
+
+  /* Colors - Header */
+  --color-header-500: #ffc9e1;
+  --color-header-400: #f2ebeb;
+}

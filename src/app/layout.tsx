@@ -1,17 +1,30 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Inria_Serif, Kaisei_Tokumin } from "next/font/google";
 
 import type { Metadata } from "next";
 
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Base font - Inter
+const inter = Inter({
+  variable: "--font-family-base",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+// Hero font - Inria Serif
+const inriaSerif = Inria_Serif({
+  variable: "--font-family-hero",
+  weight: ["300", "400", "700"],
   subsets: ["latin"],
+  display: "swap",
+});
+
+// Header font - Kaisei Tokumin
+const kaiseiTokumin = Kaisei_Tokumin({
+  variable: "--font-family-header",
+  weight: ["400", "500", "700", "800"],
+  subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -26,7 +39,11 @@ export default function RootLayout({
 }>): React.ReactElement {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>{children}</body>
+      <body
+        className={`${inter.variable} ${inriaSerif.variable} ${kaiseiTokumin.variable} antialiased`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
