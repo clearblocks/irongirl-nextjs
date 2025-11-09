@@ -1,0 +1,18 @@
+FROM node:25-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Install dependencies
+COPY package*.json ./
+RUN npm ci
+
+# Copy application code
+COPY . .
+
+# Expose Storybook port
+EXPOSE 6006
+
+# Run Storybook in development mode (bind to 0.0.0.0 for Docker)
+CMD ["npx", "storybook", "dev", "-p", "6006", "--host", "0.0.0.0"]
+

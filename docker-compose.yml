@@ -38,6 +38,21 @@ services:
       postgres:
         condition: service_healthy
 
+  storybook:
+    build:
+      context: .
+      dockerfile: Dockerfile.storybook
+    container_name: irongirl-storybook
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "${STORYBOOK_PORT:-6006}:6006"
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.storybook
+
 volumes:
   postgres_data:
 

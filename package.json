@@ -11,7 +11,9 @@
     "type-check": "tsc --noEmit",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,css,md}\"",
-    "check-all": "npm run type-check && npm run lint && npm run format:check"
+    "check-all": "npm run type-check && npm run lint && npm run format:check",
+    "storybook": "storybook dev -p 6006 --host 127.0.0.1",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "next": "16.0.1",
@@ -19,6 +21,9 @@
     "react-dom": "19.2.0"
   },
   "devDependencies": {
+    "@storybook/addon-links": "10.0.6",
+    "@storybook/nextjs": "10.0.6",
+    "@storybook/react": "10.0.6",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -33,6 +38,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
     "prettier": "^3.6.2",
+    "storybook": "10.0.6",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

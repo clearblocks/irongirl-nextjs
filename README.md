@@ -2,23 +2,69 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### Using Docker (Recommended)
+
+Start all services including Next.js, PostgreSQL, and Storybook:
+
+```bash
+docker-compose up
+```
+
+- Next.js app: http://localhost:3000
+- Storybook: http://localhost:6006
+
+To start individual services:
+
+```bash
+# Start only Next.js
+docker-compose up nextjs
+
+# Start only Storybook
+docker-compose up storybook
+```
+
+### Local Development
+
 First, run the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Storybook
+
+This project includes Storybook v10.0.6 for component development and documentation.
+
+### Running Storybook
+
+```bash
+# Using Docker
+docker-compose up storybook
+
+# Or locally
+npm run storybook
+```
+
+Visit http://localhost:6006 to browse the component library.
+
+**Note**: This setup uses Storybook v10.0.6 for Next.js 16 support. Some addons (like MDX support) are not yet available at this version. See [docs/STORYBOOK_LIMITATIONS.md](docs/STORYBOOK_LIMITATIONS.md) for details.
+
+For detailed Storybook documentation, see [docs/STORYBOOK.md](docs/STORYBOOK.md).
+
+### Demo Components
+
+The project includes demo components to showcase the setup:
+
+- **Atoms**: Button, Input, Label
+- **Molecules**: FormField, Card
+
+All components have corresponding Storybook stories with interactive controls.
 
 ## Learn More
 
