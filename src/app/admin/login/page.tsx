@@ -100,10 +100,9 @@ export default function AdminLoginPage() {
               <div className="w-full">
                 <Button
                   type="submit"
+                  label={isLoading ? 'Authenticating...' : 'Login'}
                   disabled={isLoading || !token}
-                >
-                  {isLoading ? 'Authenticating...' : 'Login'}
-                </Button>
+                />
               </div>
             </form>
 

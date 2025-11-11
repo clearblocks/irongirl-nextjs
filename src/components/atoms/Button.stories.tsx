@@ -9,18 +9,18 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'outline'],
-    },
-    size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+    label: {
+      control: 'text',
+      description: 'Button label text',
     },
     disabled: {
       control: 'boolean',
+      description: 'Disabled state with grayscale filter',
     },
-    onClick: { action: 'clicked' },
+    onClick: { 
+      action: 'clicked',
+      description: 'Click handler function',
+    },
   },
 } satisfies Meta<typeof Button>;
 
@@ -29,50 +29,30 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    children: 'Primary Button',
-    variant: 'primary',
-  },
-};
-
-export const Secondary: Story = {
-  args: {
-    children: 'Secondary Button',
-    variant: 'secondary',
-  },
-};
-
-export const Outline: Story = {
-  args: {
-    children: 'Outline Button',
-    variant: 'outline',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    children: 'Small Button',
-    size: 'small',
-  },
-};
-
-export const Medium: Story = {
-  args: {
-    children: 'Medium Button',
-    size: 'medium',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    children: 'Large Button',
-    size: 'large',
+    label: 'Primary Button',
   },
 };
 
 export const Disabled: Story = {
   args: {
-    children: 'Disabled Button',
+    label: 'Disabled Button',
     disabled: true,
+  },
+};
+
+export const Interactive: Story = {
+  args: {
+    label: 'Click Me',
+  },
+  play: async ({ canvasElement }) => {
+    // This story demonstrates the onClick behavior
+    // The action will be logged in the Actions panel
+  },
+};
+
+export const LongLabel: Story = {
+  args: {
+    label: 'Button with a Much Longer Label Text',
   },
 };
 

@@ -2,25 +2,17 @@ import React from 'react';
 
 export interface ButtonProps {
   /**
-   * Button content
+   * Button label text
    */
-  children: React.ReactNode;
-  /**
-   * Button variant
-   */
-  variant?: 'primary' | 'secondary' | 'outline';
-  /**
-   * Button size
-   */
-  size?: 'small' | 'medium' | 'large';
-  /**
-   * Disabled state
-   */
-  disabled?: boolean;
+  label: string;
   /**
    * Click handler
    */
   onClick?: () => void;
+  /**
+   * Disabled state
+   */
+  disabled?: boolean;
   /**
    * Button type
    */
@@ -28,36 +20,19 @@ export interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = ({
-  children,
-  variant = 'primary',
-  size = 'medium',
-  disabled = false,
+  label,
   onClick,
+  disabled = false,
   type = 'button',
 }) => {
   const baseStyles =
-    'font-sans rounded-lg transition-all duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-offset-2';
-
-  const variantStyles = {
-    primary:
-      'bg-primary text-white hover:bg-primary-light focus:ring-primary disabled:bg-gray-300',
-    secondary:
-      'bg-header text-white hover:bg-header-light focus:ring-header disabled:bg-gray-300',
-    outline:
-      'bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white focus:ring-primary disabled:border-gray-300 disabled:text-gray-300',
-  };
-
-  const sizeStyles = {
-    small: 'px-3 py-1.5 text-sm',
-    medium: 'px-4 py-2 text-base',
-    large: 'px-6 py-3 text-lg',
-  };
+    'font-sans font-medium text-xl text-white bg-primary rounded-[25px] px-[26px] py-0 h-[50px] flex items-center justify-center gap-[10px] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary shadow-[0px_4px_4px_0px_inset_rgba(0,0,0,0.25)]';
 
   const disabledStyles = disabled
-    ? 'cursor-not-allowed opacity-60'
-    : 'cursor-pointer';
+    ? 'cursor-not-allowed grayscale'
+    : 'cursor-pointer hover:opacity-90';
 
-  const className = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${disabledStyles}`;
+  const className = `${baseStyles} ${disabledStyles}`;
 
   return (
     <button
@@ -66,7 +41,7 @@ export const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {children}
+      {label}
     </button>
   );
 };

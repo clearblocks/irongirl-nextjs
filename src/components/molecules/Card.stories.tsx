@@ -71,12 +71,8 @@ export const WithFooter: Story = {
     ),
     footer: (
       <div className="flex gap-2 justify-end">
-        <Button variant="outline" size="small">
-          Cancel
-        </Button>
-        <Button variant="primary" size="small">
-          Confirm
-        </Button>
+        <Button label="Cancel" />
+        <Button label="Confirm" />
       </div>
     ),
   },

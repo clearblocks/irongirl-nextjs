@@ -55,11 +55,8 @@ export default function AdminDashboardPage() {
             </Link>
             <Button
               onClick={handleLogout}
-              variant="secondary"
-              size="small"
-            >
-              Logout
-            </Button>
+              label="Logout"
+            />
           </div>
         </div>
       </nav>
@@ -155,19 +152,13 @@ export default function AdminDashboardPage() {
               </h3>
               <div className="space-y-3">
                 <div className="w-full">
-                  <Button>
-                    Manage Users
-                  </Button>
+                  <Button label="Manage Users" />
                 </div>
                 <div className="w-full">
-                  <Button variant="secondary">
-                    View Reports
-                  </Button>
+                  <Button label="View Reports" />
                 </div>
                 <div className="w-full">
-                  <Button variant="secondary">
-                    System Settings
-                  </Button>
+                  <Button label="System Settings" />
                 </div>
               </div>
             </div>
