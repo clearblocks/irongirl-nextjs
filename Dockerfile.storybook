@@ -14,5 +14,5 @@ COPY . .
 EXPOSE 6006
 
 # Run Storybook in development mode (bind to 0.0.0.0 for Docker)
-CMD ["npx", "storybook", "dev", "-p", "6006", "--host", "0.0.0.0"]
+CMD ["npx", "storybook", "dev", "-p", "6006", "--host", "0.0.0.0", "--no-open"]
 

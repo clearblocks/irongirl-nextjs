@@ -4,7 +4,7 @@ services:
   postgres:
     image: postgres:16-alpine
     container_name: irongirl-postgres
-    restart: never
+    restart: no
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
@@ -24,7 +24,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     container_name: irongirl-nextjs
-    restart: never
+    restart: no
     environment:
       - NODE_ENV=development
       - DATABASE_URL=postgresql://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@postgres:5432/${POSTGRES_DB:-irongirl}
@@ -43,7 +43,7 @@ services:
       context: .
       dockerfile: Dockerfile.storybook
     container_name: irongirl-storybook
-    restart: never
+    restart: no
     environment:
       - NODE_ENV=development
     ports:
