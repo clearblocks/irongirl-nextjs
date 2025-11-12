@@ -1,5 +1,7 @@
 # Tailwind Theme Configuration
 
+> **📖 For complete Tailwind v4 setup information, see [TAILWIND_V4_SETUP.md](../../TAILWIND_V4_SETUP.md)**
+
 This project uses Tailwind CSS v4 with design tokens exported from Figma.
 
 ## Theme Structure

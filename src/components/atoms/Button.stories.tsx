@@ -44,7 +44,7 @@ export const Interactive: Story = {
   args: {
     label: 'Click Me',
   },
-  play: async ({ canvasElement }) => {
+  play: async () => {
     // This story demonstrates the onClick behavior
     // The action will be logged in the Actions panel
   },
