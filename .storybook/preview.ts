@@ -1,6 +1,19 @@
 import type { Preview } from '@storybook/react';
 import '../src/app/globals.css';
 
+// Mock localStorage for Storybook if not available (during build)
+if (typeof window !== 'undefined' && typeof window.localStorage === 'undefined') {
+  // Mocking localStorage for Storybook compatibility
+  (window as { localStorage: Storage }).localStorage = {
+    getItem: () => null,
+    setItem: () => {},
+    removeItem: () => {},
+    clear: () => {},
+    length: 0,
+    key: () => null,
+  } as Storage;
+}
+
 const preview: Preview = {
   parameters: {
     controls: {
@@ -21,6 +34,10 @@ const preview: Preview = {
           value: '#171717',
         },
       ],
+    },
+    // Disable Next.js middleware for Storybook
+    nextjs: {
+      appDirectory: true,
     },
   },
 };

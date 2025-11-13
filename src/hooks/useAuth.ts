@@ -21,7 +21,7 @@ export function useAuth() {
       setIsAuthenticated(isValid);
       
       // If server says invalid but we have localStorage token, clear it
-      if (!isValid) {
+      if (!isValid && typeof window !== 'undefined') {
         localStorage.removeItem('admin_token');
       }
     } else {
