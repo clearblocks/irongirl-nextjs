@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface LabelProps {
   /**
@@ -16,19 +16,19 @@ export interface LabelProps {
   /**
    * Size variant
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: "small" | "medium" | "large";
 }
 
 export const Label: React.FC<LabelProps> = ({
   children,
   htmlFor,
   required = false,
-  size = 'medium',
+  size = "medium",
 }) => {
   const sizeStyles = {
-    small: 'text-sm',
-    medium: 'text-base',
-    large: 'text-lg',
+    small: "text-sm",
+    medium: "text-base",
+    large: "text-lg",
   };
 
   const className = `font-sans font-medium text-foreground ${sizeStyles[size]} mb-1 block`;
@@ -40,4 +40,3 @@ export const Label: React.FC<LabelProps> = ({
     </label>
   );
 };
-

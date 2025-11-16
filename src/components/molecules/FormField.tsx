@@ -1,7 +1,8 @@
-import React from 'react';
-import { Input, InputProps, Label } from '../atoms';
+import React from "react";
 
-export interface FormFieldProps extends Omit<InputProps, 'id' | 'error'> {
+import { Input, type InputProps, Label } from "../atoms";
+
+export interface FormFieldProps extends Omit<InputProps, "id" | "error"> {
   /**
    * Field label
    */
@@ -36,13 +37,8 @@ export const FormField: React.FC<FormFieldProps> = ({
         {label}
       </Label>
       <Input id={id} error={hasError} required={required} {...inputProps} />
-      {errorMessage && (
-        <p className="mt-1 text-sm text-red-500">{errorMessage}</p>
-      )}
-      {helperText && !errorMessage && (
-        <p className="mt-1 text-sm text-gray-500">{helperText}</p>
-      )}
+      {errorMessage && <p className="mt-1 text-sm text-red-500">{errorMessage}</p>}
+      {helperText && !errorMessage && <p className="mt-1 text-sm text-gray-500">{helperText}</p>}
     </div>
   );
 };
-

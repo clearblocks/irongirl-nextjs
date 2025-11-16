@@ -5,11 +5,13 @@ This project uses **Tailwind CSS v4**, which has a fundamentally different confi
 ## Key Differences from Tailwind v3
 
 ### v3 (Old)
+
 - Required `tailwind.config.js` file
 - Used `@tailwind base; @tailwind components; @tailwind utilities;` directives
 - Configuration in JavaScript
 
 ### v4 (New - Current)
+
 - **Optional** `tailwind.config.ts` (mainly for content paths and IDE support)
 - Uses `@import "tailwindcss";` directive
 - Configuration in CSS using `@theme` directive
@@ -18,6 +20,7 @@ This project uses **Tailwind CSS v4**, which has a fundamentally different confi
 ## Project Configuration Files
 
 ### 1. `tailwind.config.ts`
+
 ```typescript
 import type { Config } from "tailwindcss";
 
@@ -34,11 +37,13 @@ export default config;
 ```
 
 **Purpose:**
+
 - Defines content paths for CSS purging
 - Provides IDE autocomplete support
 - Optional but recommended for better DX
 
 ### 2. `postcss.config.mjs`
+
 ```javascript
 const config = {
   plugins: {
@@ -50,6 +55,7 @@ export default config;
 ```
 
 **Purpose:**
+
 - Integrates Tailwind v4 with PostCSS
 - Uses `@tailwindcss/postcss` plugin (not the old `tailwindcss` plugin)
 
@@ -75,6 +81,7 @@ This is where the theme configuration lives:
 ```
 
 **Purpose:**
+
 - Imports Tailwind CSS base styles
 - Defines custom theme tokens
 - Maps Figma design tokens to Tailwind classes
@@ -96,6 +103,7 @@ Contains raw design tokens from Figma:
 All custom classes are defined in the `@theme` block in `globals.css`:
 
 ### Colors
+
 - `bg-primary`, `text-primary`, `border-primary`
 - `bg-primary-light`, `text-primary-light`
 - `bg-header`, `text-header`
@@ -103,11 +111,13 @@ All custom classes are defined in the `@theme` block in `globals.css`:
 - `bg-background`, `text-foreground`
 
 ### Typography - Fonts
+
 - `font-hero` - Inria Serif (for hero headings)
 - `font-sans` - Inter (default body font)
 - `font-header` - Kaisei Tokumin (for section headers)
 
 ### Typography - Sizes
+
 - `text-xs` - 11px
 - `text-base` - 15px (default)
 - `text-xl` - 19px
@@ -115,11 +125,13 @@ All custom classes are defined in the `@theme` block in `globals.css`:
 - `text-3xl` - 26px
 
 ### Line Heights
+
 - `leading-list` - 30px (for list items)
 
 ## How to Add New Theme Tokens
 
 1. **Add to Figma tokens** (if design-related):
+
    ```css
    /* src/styles/figma-tokens.css */
    :root {
@@ -128,6 +140,7 @@ All custom classes are defined in the `@theme` block in `globals.css`:
    ```
 
 2. **Map to Tailwind classes**:
+
    ```css
    /* src/app/globals.css */
    @theme {
@@ -137,9 +150,7 @@ All custom classes are defined in the `@theme` block in `globals.css`:
 
 3. **Use in components**:
    ```tsx
-   <div className="bg-secondary text-white">
-     Hello World
-   </div>
+   <div className="bg-secondary text-white">Hello World</div>
    ```
 
 ## Component Example
@@ -148,9 +159,7 @@ All custom classes are defined in the `@theme` block in `globals.css`:
 export const MyComponent = () => {
   return (
     <div className="bg-primary-light p-8 rounded-lg">
-      <h1 className="font-hero text-3xl text-primary mb-4">
-        Hero Heading
-      </h1>
+      <h1 className="font-hero text-3xl text-primary mb-4">Hero Heading</h1>
       <p className="font-sans text-base text-foreground leading-list">
         Body text with custom line height
       </p>
@@ -168,7 +177,7 @@ Storybook automatically inherits all Tailwind styles via:
 
 ```typescript
 // .storybook/preview.ts
-import '../src/app/globals.css';
+import "../src/app/globals.css";
 ```
 
 No additional configuration needed!
@@ -176,30 +185,39 @@ No additional configuration needed!
 ## IDE Support
 
 ### VS Code
+
 Install the official Tailwind CSS IntelliSense extension:
+
 - Extension ID: `bradlc.vscode-tailwindcss`
 
 The extension will automatically detect the `tailwind.config.ts` file and provide:
+
 - Autocomplete for class names
 - Hover previews
 - Linting
 
 ### TypeScript
+
 Tailwind v4 provides excellent TypeScript support out of the box. The `tailwind.config.ts` file is fully typed.
 
 ## Common Issues and Solutions
 
 ### Issue: "Can't find tailwind.config"
+
 **Solution:** This is normal for v4. The config file is optional. If you see this message from an AI assistant, it's because v4's approach is different. The config file now exists for content paths and IDE support.
 
 ### Issue: Classes not working
+
 **Solution:** Make sure:
+
 1. Your component file is in one of the content paths in `tailwind.config.ts`
 2. The dev server is running (`yarn dev`)
 3. You're importing `globals.css` in your layout
 
 ### Issue: Custom colors not working
+
 **Solution:** Check that:
+
 1. Colors are defined in the `@theme` block in `globals.css`
 2. The naming follows Tailwind conventions (e.g., `--color-primary`, not `--primary-color`)
 3. Figma tokens are properly imported
@@ -220,11 +238,13 @@ Note: v4 requires both packages.
 ## Building for Production
 
 Tailwind v4 automatically handles:
+
 - CSS purging (removes unused styles)
 - Minification
 - Optimization
 
 Just run:
+
 ```bash
 yarn build
 ```
@@ -232,6 +252,7 @@ yarn build
 ## Migration Notes
 
 If you're used to Tailwind v3:
+
 - ✅ All utility classes work the same way
 - ✅ Most configuration is backwards compatible
 - ❌ No JIT mode (v4 is always optimized)
@@ -247,6 +268,7 @@ If you're used to Tailwind v3:
 ## Summary
 
 **This project uses Tailwind CSS v4 with:**
+
 - ✅ `tailwind.config.ts` for content paths and IDE support
 - ✅ `@import "tailwindcss"` in `globals.css`
 - ✅ `@theme` directive for custom theme configuration
@@ -254,4 +276,3 @@ If you're used to Tailwind v3:
 - ✅ Full Next.js and Storybook support
 
 **No additional setup needed!** Just use Tailwind classes as normal.
-

@@ -137,54 +137,61 @@ The `index.ts` files serve as **barrel exports** - they act as a central export 
 ## Benefits
 
 **1. Cleaner imports:**
+
 ```typescript
 // Without index.ts
-import { Button } from '@/components/atoms/Button/Button';
-import { ButtonProps } from '@/components/atoms/Button/Button';
+import { Button } from "@/components/atoms/Button/Button";
+import { ButtonProps } from "@/components/atoms/Button/Button";
 
 // With index.ts
-import { Button, ButtonProps } from '@/components/atoms/Button';
+import { Button, ButtonProps } from "@/components/atoms/Button";
 ```
 
 **2. Encapsulation:**
 You control what's exported from a folder. Internal implementation files stay private:
+
 ```typescript
 // src/components/atoms/Button/index.ts
-export { Button } from './Button';
-export type { ButtonProps } from './Button';
+export { Button } from "./Button";
+export type { ButtonProps } from "./Button";
 // ButtonHelpers.ts is NOT exported - stays internal
 ```
 
 **3. Easy refactoring:**
 If you rename `Button.tsx` to `PrimaryButton.tsx`, you only update the `index.ts`:
+
 ```typescript
 // index.ts
-export { PrimaryButton as Button } from './PrimaryButton';
+export { PrimaryButton as Button } from "./PrimaryButton";
 ```
+
 All imports throughout your app still work!
 
 **4. Grouping exports:**
+
 ```typescript
 // src/components/atoms/index.ts
-export * from './Button';
-export * from './Input';
-export * from './Label';
+export * from "./Button";
+export * from "./Input";
+export * from "./Label";
 
 // Now you can do:
-import { Button, Input, Label } from '@/components/atoms';
+import { Button, Input, Label } from "@/components/atoms";
 ```
 
 ## Example Structure
 
 ```typescript
 // src/components/molecules/FormField/FormField.tsx
-export const FormField = ({ label, error, ...props }) => { /* ... */ };
+export const FormField = ({ label, error, ...props }) => {
+  /* ... */
+};
 
 // src/components/molecules/FormField/index.ts
-export { FormField } from './FormField';
+export { FormField } from "./FormField";
 
 // Usage in your page:
-import { FormField } from '@/components/molecules/FormField';
+import { FormField } from "@/components/molecules/FormField";
 ```
 
 **Note:** They're optional! If you prefer `import { Button } from './Button/Button'`, you can skip them. But they're a common pattern in larger codebases for cleaner imports.
@@ -193,13 +200,14 @@ import { FormField } from '@/components/molecules/FormField';
 
 Why are page level layouts in the templates dir but also in the app page dirs?
 
-# Answer 
+# Answer
 
 Great question! This can be confusing. Let me clarify the distinction:
 
 ## Templates vs App Layouts
 
 **Templates** (in `components/templates/`):
+
 - **Reusable UI structure** without route-specific logic
 - Pure presentation components
 - Can be used across different pages/routes
@@ -220,6 +228,7 @@ export const MainLayout = ({ children, sidebar }) => (
 ```
 
 **Layouts** (in `app/`):
+
 - **Next.js specific** - tied to routing
 - Contains route-specific logic, metadata, data fetching
 - Uses your template components
@@ -247,11 +256,13 @@ export default function RootLayout({ children }) {
 ## When to use what?
 
 **Use Templates when:**
+
 - You want to reuse the same layout structure in multiple places
 - You need to showcase layouts in Storybook
 - You want separation between UI and routing logic
 
 **Use App Layouts when:**
+
 - You need Next.js routing features (nested layouts, route groups)
 - You need to add metadata, data fetching, or server components
 
@@ -309,127 +320,127 @@ src/
 export const colors = {
   // Primary
   primary: {
-    50: '#eff6ff',
-    100: '#dbeafe',
-    500: '#3b82f6',
-    600: '#2563eb',
-    900: '#1e3a8a',
+    50: "#eff6ff",
+    100: "#dbeafe",
+    500: "#3b82f6",
+    600: "#2563eb",
+    900: "#1e3a8a",
   },
   // Semantic colors
   success: {
-    light: '#d1fae5',
-    DEFAULT: '#10b981',
-    dark: '#065f46',
+    light: "#d1fae5",
+    DEFAULT: "#10b981",
+    dark: "#065f46",
   },
   error: {
-    light: '#fee2e2',
-    DEFAULT: '#ef4444',
-    dark: '#991b1b',
+    light: "#fee2e2",
+    DEFAULT: "#ef4444",
+    dark: "#991b1b",
   },
   // Neutral
   neutral: {
-    0: '#ffffff',
-    50: '#f9fafb',
-    100: '#f3f4f6',
-    500: '#6b7280',
-    900: '#111827',
-    1000: '#000000',
+    0: "#ffffff",
+    50: "#f9fafb",
+    100: "#f3f4f6",
+    500: "#6b7280",
+    900: "#111827",
+    1000: "#000000",
   },
 } as const;
 
 // src/styles/design-tokens/typography.ts
 export const typography = {
   fontFamily: {
-    sans: ['Inter', 'system-ui', 'sans-serif'],
-    mono: ['Roboto Mono', 'monospace'],
+    sans: ["Inter", "system-ui", "sans-serif"],
+    mono: ["Roboto Mono", "monospace"],
   },
   fontSize: {
-    xs: ['0.75rem', { lineHeight: '1rem' }],      // 12px
-    sm: ['0.875rem', { lineHeight: '1.25rem' }],   // 14px
-    base: ['1rem', { lineHeight: '1.5rem' }],      // 16px
-    lg: ['1.125rem', { lineHeight: '1.75rem' }],   // 18px
-    xl: ['1.25rem', { lineHeight: '1.75rem' }],    // 20px
-    '2xl': ['1.5rem', { lineHeight: '2rem' }],     // 24px
-    '3xl': ['1.875rem', { lineHeight: '2.25rem' }], // 30px
-    '4xl': ['2.25rem', { lineHeight: '2.5rem' }],  // 36px
+    xs: ["0.75rem", { lineHeight: "1rem" }], // 12px
+    sm: ["0.875rem", { lineHeight: "1.25rem" }], // 14px
+    base: ["1rem", { lineHeight: "1.5rem" }], // 16px
+    lg: ["1.125rem", { lineHeight: "1.75rem" }], // 18px
+    xl: ["1.25rem", { lineHeight: "1.75rem" }], // 20px
+    "2xl": ["1.5rem", { lineHeight: "2rem" }], // 24px
+    "3xl": ["1.875rem", { lineHeight: "2.25rem" }], // 30px
+    "4xl": ["2.25rem", { lineHeight: "2.5rem" }], // 36px
   },
   fontWeight: {
-    normal: '400',
-    medium: '500',
-    semibold: '600',
-    bold: '700',
+    normal: "400",
+    medium: "500",
+    semibold: "600",
+    bold: "700",
   },
 } as const;
 
 // src/styles/design-tokens/spacing.ts
 export const spacing = {
-  0: '0',
-  1: '0.25rem',   // 4px
-  2: '0.5rem',    // 8px
-  3: '0.75rem',   // 12px
-  4: '1rem',      // 16px
-  5: '1.25rem',   // 20px
-  6: '1.5rem',    // 24px
-  8: '2rem',      // 32px
-  10: '2.5rem',   // 40px
-  12: '3rem',     // 48px
-  16: '4rem',     // 64px
-  20: '5rem',     // 80px
+  0: "0",
+  1: "0.25rem", // 4px
+  2: "0.5rem", // 8px
+  3: "0.75rem", // 12px
+  4: "1rem", // 16px
+  5: "1.25rem", // 20px
+  6: "1.5rem", // 24px
+  8: "2rem", // 32px
+  10: "2.5rem", // 40px
+  12: "3rem", // 48px
+  16: "4rem", // 64px
+  20: "5rem", // 80px
 } as const;
 
 // src/styles/design-tokens/shadows.ts
 export const shadows = {
-  sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
-  DEFAULT: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-  md: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
-  lg: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
-  xl: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+  sm: "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+  DEFAULT: "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
+  md: "0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)",
+  lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+  xl: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
 } as const;
 
 // src/styles/design-tokens/borders.ts
 export const borders = {
   radius: {
-    none: '0',
-    sm: '0.25rem',    // 4px
-    DEFAULT: '0.5rem', // 8px
-    md: '0.75rem',    // 12px
-    lg: '1rem',       // 16px
-    full: '9999px',
+    none: "0",
+    sm: "0.25rem", // 4px
+    DEFAULT: "0.5rem", // 8px
+    md: "0.75rem", // 12px
+    lg: "1rem", // 16px
+    full: "9999px",
   },
   width: {
-    0: '0',
-    DEFAULT: '1px',
-    2: '2px',
-    4: '4px',
+    0: "0",
+    DEFAULT: "1px",
+    2: "2px",
+    4: "4px",
   },
 } as const;
 
 // src/styles/design-tokens/index.ts
-export * from './colors';
-export * from './typography';
-export * from './spacing';
-export * from './shadows';
-export * from './borders';
+export * from "./colors";
+export * from "./typography";
+export * from "./spacing";
+export * from "./shadows";
+export * from "./borders";
 ```
 
 ## 2. Create Theme Configurations
 
 ```typescript
 // src/styles/themes/light.ts
-import { colors } from '../design-tokens';
+import { colors } from "../design-tokens";
 
 export const lightTheme = {
   colors: {
     background: colors.neutral[0],
     foreground: colors.neutral[900],
     card: colors.neutral[0],
-    'card-foreground': colors.neutral[900],
+    "card-foreground": colors.neutral[900],
     primary: colors.primary[600],
-    'primary-foreground': colors.neutral[0],
+    "primary-foreground": colors.neutral[0],
     secondary: colors.neutral[100],
-    'secondary-foreground': colors.neutral[900],
+    "secondary-foreground": colors.neutral[900],
     muted: colors.neutral[100],
-    'muted-foreground': colors.neutral[500],
+    "muted-foreground": colors.neutral[500],
     border: colors.neutral[200],
     input: colors.neutral[200],
     ring: colors.primary[500],
@@ -437,20 +448,20 @@ export const lightTheme = {
 } as const;
 
 // src/styles/themes/dark.ts
-import { colors } from '../design-tokens';
+import { colors } from "../design-tokens";
 
 export const darkTheme = {
   colors: {
     background: colors.neutral[950],
     foreground: colors.neutral[50],
     card: colors.neutral[900],
-    'card-foreground': colors.neutral[50],
+    "card-foreground": colors.neutral[50],
     primary: colors.primary[500],
-    'primary-foreground': colors.neutral[0],
+    "primary-foreground": colors.neutral[0],
     secondary: colors.neutral[800],
-    'secondary-foreground': colors.neutral[50],
+    "secondary-foreground": colors.neutral[50],
     muted: colors.neutral[800],
-    'muted-foreground': colors.neutral[400],
+    "muted-foreground": colors.neutral[400],
     border: colors.neutral[800],
     input: colors.neutral[800],
     ring: colors.primary[400],
@@ -458,49 +469,49 @@ export const darkTheme = {
 } as const;
 
 // src/styles/themes/index.ts
-export * from './light';
-export * from './dark';
+export * from "./light";
+export * from "./dark";
 ```
 
 ## 3. Configure Tailwind
 
 ```typescript
 // tailwind.config.ts
-import type { Config } from 'tailwindcss';
-import { colors, typography, spacing, shadows, borders } from './src/styles/design-tokens';
+import type { Config } from "tailwindcss";
+import { colors, typography, spacing, shadows, borders } from "./src/styles/design-tokens";
 
 const config: Config = {
-  darkMode: ['class'],
+  darkMode: ["class"],
   content: [
-    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
-    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
         ...colors,
         // Theme-aware colors (uses CSS variables)
-        background: 'hsl(var(--background))',
-        foreground: 'hsl(var(--foreground))',
-        card: 'hsl(var(--card))',
-        'card-foreground': 'hsl(var(--card-foreground))',
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        card: "hsl(var(--card))",
+        "card-foreground": "hsl(var(--card-foreground))",
         primary: {
           ...colors.primary,
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
         muted: {
-          DEFAULT: 'hsl(var(--muted))',
-          foreground: 'hsl(var(--muted-foreground))',
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
-        border: 'hsl(var(--border))',
-        input: 'hsl(var(--input))',
-        ring: 'hsl(var(--ring))',
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
       },
       fontFamily: typography.fontFamily,
       fontSize: typography.fontSize,
@@ -597,7 +608,7 @@ If you're using the **Figma Tokens** plugin, you can export tokens as JSON and c
 
 ```typescript
 // scripts/convert-figma-tokens.ts
-import figmaTokens from './figma-tokens.json';
+import figmaTokens from "./figma-tokens.json";
 
 // Convert Figma tokens to your format
 const colors = Object.entries(figmaTokens.colors).reduce((acc, [key, value]) => {
@@ -609,6 +620,7 @@ const colors = Object.entries(figmaTokens.colors).reduce((acc, [key, value]) => 
 ```
 
 This setup gives you:
+
 - ✅ Type-safe design tokens
 - ✅ Single source of truth from Figma
 - ✅ Easy theme switching (light/dark)
@@ -628,6 +640,7 @@ Yes, you can use the Figma MCP (Model Context Protocol) server to export design 
 The Figma MCP can access Figma files and extract information, including variables. If your design tokens are set up as **Figma variables** with a consistent naming convention, the MCP can read them.
 
 **What you can do:**
+
 - Read variable collections
 - Extract variable names, values, and types
 - Get color, number, string, and boolean variables
@@ -674,7 +687,7 @@ You'd need to parse the naming convention and transform it:
 
 function parseVariableName(name: string) {
   // "colors/primary/500" -> { category: 'colors', name: 'primary', variant: '500' }
-  const parts = name.split('/');
+  const parts = name.split("/");
   return {
     category: parts[0],
     name: parts[1],
@@ -689,10 +702,10 @@ function convertToDesignTokens(figmaVariables) {
     typography: {},
   };
 
-  figmaVariables.forEach(variable => {
+  figmaVariables.forEach((variable) => {
     const parsed = parseVariableName(variable.name);
-    
-    if (parsed.category === 'colors') {
+
+    if (parsed.category === "colors") {
       if (!tokens.colors[parsed.name]) {
         tokens.colors[parsed.name] = {};
       }
@@ -744,6 +757,7 @@ For this to work well, your Figma variables should follow a clear naming pattern
 ## Recommended Approach
 
 **Option 1: MCP + Custom Script** (More Control)
+
 ```typescript
 // Use Figma MCP to fetch variables
 // Transform to your format
@@ -751,12 +765,14 @@ For this to work well, your Figma variables should follow a clear naming pattern
 ```
 
 **Option 2: Figma Tokens Plugin** (Easier)
+
 - Use the community plugin "Tokens Studio for Figma"
 - Exports to JSON in various formats
 - Better support for complex token relationships
 - Can sync with GitHub
 
 **Option 3: Hybrid**
+
 - Use Figma variables for source of truth
 - Use MCP or REST API to fetch
 - Run a script to generate design-tokens files
@@ -766,29 +782,30 @@ For this to work well, your Figma variables should follow a clear naming pattern
 
 ```typescript
 // scripts/sync-design-tokens.ts
-import fs from 'fs';
+import fs from "fs";
 
 async function syncTokensFromFigma() {
   // 1. Use Figma MCP to fetch variables
   const variables = await fetchFigmaVariables();
-  
+
   // 2. Transform to your structure
   const colors = transformColors(variables);
   const spacing = transformSpacing(variables);
   const typography = transformTypography(variables);
-  
+
   // 3. Generate TypeScript files
-  generateTokenFile('colors.ts', colors);
-  generateTokenFile('spacing.ts', spacing);
-  generateTokenFile('typography.ts', typography);
-  
-  console.log('✅ Design tokens synced from Figma');
+  generateTokenFile("colors.ts", colors);
+  generateTokenFile("spacing.ts", spacing);
+  generateTokenFile("typography.ts", typography);
+
+  console.log("✅ Design tokens synced from Figma");
 }
 
 syncTokensFromFigma();
 ```
 
 **Run this as part of your development workflow:**
+
 ```json
 // package.json
 {

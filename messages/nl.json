@@ -1,0 +1,19 @@
+{
+  "common": {
+    "language": "Taal",
+    "english": "Engels",
+    "dutch": "Nederlands"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "Over",
+    "services": "Diensten",
+    "pricing": "Prijzen",
+    "contact": "Contact"
+  },
+  "homepage": {
+    "title": "Welkom bij Iron Girl",
+    "subtitle": "Jouw ondertitel hier",
+    "cta": "Begin Nu"
+  }
+}

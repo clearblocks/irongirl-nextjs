@@ -1,15 +1,16 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { useAuth } from '@/hooks/useAuth';
-import { Input } from '@/components/atoms/Input';
-import { Button } from '@/components/atoms/Button';
+import { useState, useEffect } from "react";
 
-export default function AdminLoginPage() {
-  const [token, setToken] = useState('');
-  const [error, setError] = useState('');
+import { Button } from "@/components/atoms/Button";
+import { Input } from "@/components/atoms/Input";
+import { LanguageSwitcher } from "@/components/molecules";
+import { useAuth } from "@/hooks/useAuth";
+import { useRouter, Link } from "@/i18n/routing";
+
+export default function AdminLoginPage(): React.ReactElement {
+  const [token, setToken] = useState("");
+  const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const { login, isAuthenticated, isLoading: authLoading } = useAuth();
   const router = useRouter();
@@ -17,25 +18,25 @@ export default function AdminLoginPage() {
   // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated && !authLoading) {
-      router.push('/admin/dashboard');
+      router.push("/admin/dashboard");
     }
   }, [isAuthenticated, authLoading, router]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
-    setError('');
+    setError("");
     setIsLoading(true);
 
     try {
       const result = await login(token);
 
       if (result.success) {
-        router.push('/admin/dashboard');
+        router.push("/admin/dashboard");
       } else {
-        setError(result.error || 'Authentication failed');
+        setError(result.error ?? "Authentication failed");
       }
-    } catch (err) {
-      setError('An unexpected error occurred');
+    } catch (_err) {
+      setError("An unexpected error occurred");
     } finally {
       setIsLoading(false);
     }
@@ -57,13 +58,14 @@ export default function AdminLoginPage() {
       <nav className="bg-white border-b border-gray-200 py-4 px-6">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="font-hero text-2xl text-primary">IronGirl</h1>
-          <div className="flex gap-6">
+          <div className="flex gap-6 items-center">
             <Link href="/" className="font-sans text-base text-foreground hover:text-primary">
               Home
             </Link>
             <Link href="/about" className="font-sans text-base text-foreground hover:text-primary">
               About
             </Link>
+            <LanguageSwitcher />
           </div>
         </div>
       </nav>
@@ -72,11 +74,14 @@ export default function AdminLoginPage() {
       <main className="flex-1 flex items-center justify-center bg-primary-light">
         <div className="w-full max-w-md mx-auto px-6">
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="font-hero text-3xl text-primary mb-6 text-center">
-              Admin Login
-            </h2>
+            <h2 className="font-hero text-3xl text-primary mb-6 text-center">Admin Login</h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form
+              onSubmit={(e) => {
+                void handleSubmit(e);
+              }}
+              className="space-y-6"
+            >
               <div>
                 <label htmlFor="token" className="block font-sans text-base text-foreground mb-2">
                   Admin Token
@@ -85,7 +90,9 @@ export default function AdminLoginPage() {
                   id="token"
                   type="password"
                   value={token}
-                  onChange={(e) => setToken(e.target.value)}
+                  onChange={(e) => {
+                    setToken(e.target.value);
+                  }}
                   placeholder="Enter your admin token"
                   required
                 />
@@ -100,17 +107,14 @@ export default function AdminLoginPage() {
               <div className="w-full">
                 <Button
                   type="submit"
-                  label={isLoading ? 'Authenticating...' : 'Login'}
+                  label={isLoading ? "Authenticating..." : "Login"}
                   disabled={isLoading || !token}
                 />
               </div>
             </form>
 
             <div className="mt-6 text-center">
-              <Link
-                href="/"
-                className="font-sans text-sm text-primary hover:text-primary/80"
-              >
+              <Link href="/" className="font-sans text-sm text-primary hover:text-primary/80">
                 &larr; Back to Home
               </Link>
             </div>
@@ -118,7 +122,7 @@ export default function AdminLoginPage() {
             <div className="mt-8 p-4 bg-blue-50 rounded-lg">
               <p className="font-sans text-xs text-foreground">
                 <strong>Note:</strong> Enter your admin token to access the protected admin area.
-                The token is configured in the server's environment variables.
+                The token is configured in the server&apos;s environment variables.
               </p>
             </div>
           </div>
@@ -134,5 +138,3 @@ export default function AdminLoginPage() {
     </div>
   );
 }
-
-

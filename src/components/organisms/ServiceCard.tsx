@@ -1,6 +1,7 @@
-import React from 'react';
-import { Icon } from '../atoms/Icon';
-import { Button } from '../atoms/Button';
+import React from "react";
+
+import { Button } from "../atoms/Button";
+import { Icon } from "../atoms/Icon";
 
 export interface ServiceCardProps {
   /**
@@ -39,9 +40,7 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   return (
     <div className="bg-primary-light rounded-[30px] px-[10px] py-5 flex flex-col gap-[18px] items-center overflow-hidden w-full">
-      <h2 className="text-2xl font-semibold text-black font-sans shrink-0">
-        {title}
-      </h2>
+      <h2 className="text-2xl font-semibold text-black font-sans shrink-0">{title}</h2>
       <div className="w-[42px] h-[46px] shrink-0 relative">
         <Icon src={iconSrc} alt={iconAlt} />
       </div>
@@ -52,4 +51,3 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
     </div>
   );
 };
-

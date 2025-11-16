@@ -9,12 +9,10 @@ Logic: Send an email (using nodemailer) to a configured email address (mailToAdd
 
 Use the following template:
 
-Mail Headers: 
+Mail Headers:
 `From: Irongirl.nl Contactformulier <${mailToAddress}>\r\nReply-To: ${name}<${email}>
 Subject: 
-`Irongirl.nl bericht van ${name}`
-Body: 
-`Beste Irongirl, 
+`Irongirl.nl bericht van ${name}`Body: `Beste Irongirl,
 
 Je hebt een bericht ontvangen van ${name}.
 

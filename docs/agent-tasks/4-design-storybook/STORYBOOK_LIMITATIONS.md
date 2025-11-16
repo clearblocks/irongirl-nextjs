@@ -9,7 +9,9 @@ This project uses Storybook v10.0.6 which is the first version with Next.js 16 s
 The following addons were removed because they don't exist at version 10.0.6:
 
 ### 1. `@storybook/addon-essentials`
+
 **What it provides:**
+
 - `@storybook/addon-docs` - MDX support and auto-generated documentation
 - `@storybook/addon-controls` - Interactive component controls
 - `@storybook/addon-actions` - Action logging
@@ -20,26 +22,33 @@ The following addons were removed because they don't exist at version 10.0.6:
 - `@storybook/addon-outline` - Outline all elements
 
 **Impact:**
+
 - ❌ No MDX file support (use TSX stories instead)
 - ❌ No automatic "Docs" tab for components
 - ✅ Interactive controls still work via story args
 - ✅ Can still document using JSDoc comments
 
 ### 2. `@storybook/addon-interactions`
+
 **What it provides:**
+
 - Interactive testing within Storybook
 - Play functions to simulate user interactions
 
 **Impact:**
+
 - ❌ Cannot write interaction tests in Storybook
 - ✅ Can still manually test interactions in the preview
 
 ### 3. `@storybook/test`
+
 **What it provides:**
+
 - Testing utilities for Storybook
 - Vitest-compatible assertions
 
 **Impact:**
+
 - ❌ Cannot write component tests within stories
 - ✅ Can use separate testing framework (Jest, Vitest, etc.)
 
@@ -50,8 +59,9 @@ The following addons were removed because they don't exist at version 10.0.6:
 Instead of MDX files, use React components for documentation pages:
 
 **Before (MDX - not supported):**
+
 ```mdx
-import { Meta } from '@storybook/blocks';
+import { Meta } from "@storybook/blocks";
 
 <Meta title="Introduction" />
 
@@ -61,6 +71,7 @@ This is my documentation.
 ```
 
 **After (TSX - supported):**
+
 ```typescript
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -98,13 +109,13 @@ export interface ButtonProps {
    * @default 'primary'
    */
   variant?: 'primary' | 'secondary' | 'outline';
-  
+
   /**
    * Button size
    * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large';
-  
+
   /**
    * Click handler
    */
@@ -126,9 +137,9 @@ Controls work automatically through story args:
 ```typescript
 export const Primary: Story = {
   args: {
-    variant: 'primary',
-    size: 'medium',
-    children: 'Button',
+    variant: "primary",
+    size: "medium",
+    children: "Button",
   },
 };
 ```
@@ -149,7 +160,7 @@ test('calls onClick when clicked', () => {
   const { getByText } = render(
     <Button onClick={handleClick}>Click me</Button>
   );
-  
+
   fireEvent.click(getByText('Click me'));
   expect(handleClick).toHaveBeenCalledTimes(1);
 });
@@ -184,9 +195,9 @@ Then update `.storybook/main.ts`:
 ```typescript
 const config: StorybookConfig = {
   addons: [
-    '@storybook/addon-links',
-    '@storybook/addon-essentials',      // Add when available
-    '@storybook/addon-interactions',    // Add when available
+    "@storybook/addon-links",
+    "@storybook/addon-essentials", // Add when available
+    "@storybook/addon-interactions", // Add when available
   ],
   // ... rest of config
 };
@@ -205,14 +216,15 @@ Look for versions that match your Storybook version (10.0.6 in this case).
 ## Recommended Approach
 
 For now, use the minimal setup with:
+
 - **TSX stories** for all components and documentation
 - **JSDoc comments** for inline documentation
 - **TypeScript interfaces** for prop documentation
 - **Separate test files** for interaction/unit tests
 
 This approach is:
+
 - ✅ Simple and maintainable
 - ✅ Fully supported in Storybook 10.0.6
 - ✅ Compatible with agent-generated components
 - ✅ Easy to upgrade later when addons become available
-

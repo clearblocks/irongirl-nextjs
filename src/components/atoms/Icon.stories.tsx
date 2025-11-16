@@ -1,21 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Icon } from './Icon';
+import { Icon } from "./Icon";
+
+import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: 'Atoms/Icon',
+  title: "Atoms/Icon",
   component: Icon,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     src: {
-      control: 'text',
-      description: 'URL of the icon image',
+      control: "text",
+      description: "URL of the icon image",
     },
     alt: {
-      control: 'text',
-      description: 'Alternative text for accessibility',
+      control: "text",
+      description: "Alternative text for accessibility",
     },
   },
 } satisfies Meta<typeof Icon>;
@@ -25,22 +26,21 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    src: '/images/file.svg',
-    alt: 'File icon',
+    src: "/images/file.svg",
+    alt: "File icon",
   },
 };
 
 export const Globe: Story = {
   args: {
-    src: '/images/globe.svg',
-    alt: 'Globe icon',
+    src: "/images/globe.svg",
+    alt: "Globe icon",
   },
 };
 
 export const Window: Story = {
   args: {
-    src: '/images/window.svg',
-    alt: 'Window icon',
+    src: "/images/window.svg",
+    alt: "Window icon",
   },
 };
-

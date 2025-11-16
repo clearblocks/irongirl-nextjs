@@ -1,21 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { PricingRow } from './PricingRow';
+import { PricingRow } from "./PricingRow";
+
+import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: 'Molecules/PricingRow',
+  title: "Molecules/PricingRow",
   component: PricingRow,
   parameters: {
-    layout: 'padded',
+    layout: "padded",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     name: {
-      control: 'text',
-      description: 'Name of the pricing item',
+      control: "text",
+      description: "Name of the pricing item",
     },
     price: {
-      control: 'number',
-      description: 'Price in cents (integer)',
+      control: "number",
+      description: "Price in cents (integer)",
     },
   },
 } satisfies Meta<typeof PricingRow>;
@@ -25,22 +26,21 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    name: 'Overhemd',
+    name: "Overhemd",
     price: 180,
   },
 };
 
 export const HigherPrice: Story = {
   args: {
-    name: 'Tot 6 kg',
+    name: "Tot 6 kg",
     price: 1650,
   },
 };
 
 export const LongName: Story = {
   args: {
-    name: 'Blouse of overhemd korte mouwen',
+    name: "Blouse of overhemd korte mouwen",
     price: 180,
   },
 };
-

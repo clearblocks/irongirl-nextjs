@@ -37,10 +37,13 @@ Perfect! I've successfully created the mail endpoint. Here's what was implemente
 ## ✅ Completed Tasks
 
 ### 1. **Installed Dependencies**
+
 - Installed `nodemailer` and `@types/nodemailer` using yarn
 
 ### 2. **Created API Endpoint** (`/src/app/api/mail/route.ts`)
+
 The endpoint implements all specifications from `mail.md`:
+
 - **Route**: `POST /api/mail`
 - **Input Validation**: Validates that `name`, `email`, and `message` are all present and non-empty strings
 - **Response Codes**: Returns 200 for success, 400 for invalid requests
@@ -51,6 +54,7 @@ The endpoint implements all specifications from `mail.md`:
   - Body: The Dutch template with name, email, and message
 
 ### 3. **Security & Configuration**
+
 - The endpoint is **publicly accessible** (middleware already excludes API routes)
 - Uses environment variables for SMTP configuration:
   - `MAIL_TO_ADDRESS`
@@ -60,7 +64,9 @@ The endpoint implements all specifications from `mail.md`:
   - `SMTP_PASS`
 
 ### 4. **Documentation**
+
 Created `docs/api-endpoints/mail-setup.md` with:
+
 - Required environment variables
 - Example configurations for Gmail and SendGrid
 - Testing instructions with curl examples

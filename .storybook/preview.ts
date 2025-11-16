@@ -1,5 +1,5 @@
-import type { Preview } from '@storybook/react';
-import '../src/app/globals.css';
+import type { Preview } from "@storybook/react";
+import "../src/app/globals.css";
 
 const preview: Preview = {
   parameters: {
@@ -10,15 +10,15 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: 'light',
+      default: "light",
       values: [
         {
-          name: 'light',
-          value: '#ffffff',
+          name: "light",
+          value: "#ffffff",
         },
         {
-          name: 'dark',
-          value: '#171717',
+          name: "dark",
+          value: "#171717",
         },
       ],
     },
@@ -30,4 +30,3 @@ const preview: Preview = {
 };
 
 export default preview;
-

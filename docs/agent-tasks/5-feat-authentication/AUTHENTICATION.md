@@ -5,6 +5,7 @@ This document describes the Bearer token authentication system implemented for t
 ## Overview
 
 The application has two main areas:
+
 - **Public Area**: Accessible to everyone (home page, about page)
 - **Admin Area**: Protected with Bearer token authentication (admin dashboard)
 
@@ -27,12 +28,14 @@ ADMIN_TOKEN=your-secret-admin-token-change-me-in-production
 Authenticates an admin user by validating their Bearer token.
 
 **Request:**
+
 ```http
 POST /api/admin/login
 Authorization: Bearer your-secret-admin-token
 ```
 
 **Response:**
+
 - `200 OK`: Authentication successful
   ```json
   {
@@ -62,6 +65,7 @@ The middleware (`src/middleware.ts`) automatically protects all routes under `/a
 #### Auth Utilities (`src/lib/auth.ts`)
 
 Provides helper functions for authentication:
+
 - `setAuthToken(token)`: Store token in localStorage (for client-side state tracking)
 - `getAuthToken()`: Retrieve token from localStorage
 - `removeAuthToken()`: Remove token from localStorage
@@ -75,6 +79,7 @@ Provides helper functions for authentication:
 #### Auth Hook (`src/hooks/useAuth.ts`)
 
 React hook for managing authentication state:
+
 ```typescript
 const { isAuthenticated, isLoading, login, logout } = useAuth();
 ```
@@ -82,10 +87,12 @@ const { isAuthenticated, isLoading, login, logout } = useAuth();
 ### 5. Pages
 
 #### Public Pages
+
 - `/` - Home page
 - `/about` - About page
 
 #### Admin Pages
+
 - `/admin/login` - Admin login page
 - `/admin/dashboard` - Protected admin dashboard
 
@@ -127,6 +134,7 @@ const { isAuthenticated, isLoading, login, logout } = useAuth();
 ⚠️ **This is a simplified authentication system for demonstration purposes.**
 
 For production use, consider:
+
 - Using a more secure authentication method (JWT, OAuth, etc.)
 - Implementing token expiration and refresh
 - Adding rate limiting to prevent brute force attacks
@@ -155,10 +163,10 @@ To test the authentication system:
 To make authenticated API requests from the client:
 
 ```typescript
-import { authenticatedFetch } from '@/lib/auth';
+import { authenticatedFetch } from "@/lib/auth";
 
 // Example: Fetch protected data
-const response = await authenticatedFetch('/api/admin/some-endpoint');
+const response = await authenticatedFetch("/api/admin/some-endpoint");
 const data = await response.json();
 ```
 
@@ -167,12 +175,13 @@ The `authenticatedFetch` function ensures cookies are included with `credentials
 ## API Endpoints
 
 ### POST `/api/admin/login`
+
 Authenticates and sets the HttpOnly cookie.
 
 ### DELETE `/api/admin/login`
+
 Clears the authentication cookie (logout).
 
 ### GET `/api/admin/verify`
+
 Verifies if the user is authenticated by checking the cookie.
-
-

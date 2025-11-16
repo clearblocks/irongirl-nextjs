@@ -46,7 +46,7 @@ const eslintConfig = defineConfig([
       ],
       "import/no-duplicates": "error",
       "import/newline-after-import": "error",
-      "no-console": ["warn", { allow: ["warn", "error"] }],
+      "no-console": ["warn", { allow: ["info", "warn", "error"] }],
       "prefer-const": "error",
       "no-var": "error",
     },
@@ -55,6 +55,7 @@ const eslintConfig = defineConfig([
   // Enhanced configuration for TypeScript/JavaScript files
   {
     files: ["**/*.{ts,tsx,js,jsx}"],
+    ignores: [".storybook/**"],
     languageOptions: {
       parser: tsparser,
       parserOptions: {
@@ -217,7 +218,7 @@ const eslintConfig = defineConfig([
       "jsx-a11y/role-supports-aria-props": "error",
 
       // General code quality rules
-      "no-console": ["warn", { allow: ["warn", "error"] }],
+      "no-console": ["warn", { allow: ["info", "warn", "error"] }],
       "no-debugger": "error",
       "no-alert": "error",
       "no-var": "error",
@@ -241,6 +242,39 @@ const eslintConfig = defineConfig([
           next: ["const", "let", "var"],
         },
       ],
+    },
+  },
+
+  // Configuration for Storybook config files (no TypeScript project required)
+  {
+    files: [".storybook/**/*.ts"],
+    languageOptions: {
+      parser: tsparser,
+      parserOptions: {
+        ecmaVersion: "latest",
+        sourceType: "module",
+      },
+    },
+    plugins: {
+      import: importPlugin,
+    },
+    rules: {
+      "import/order": [
+        "error",
+        {
+          groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
+          "newlines-between": "always",
+          alphabetize: {
+            order: "asc",
+            caseInsensitive: true,
+          },
+        },
+      ],
+      "import/no-duplicates": "error",
+      "import/newline-after-import": "error",
+      "no-console": ["warn", { allow: ["info", "warn", "error"] }],
+      "prefer-const": "error",
+      "no-var": "error",
     },
   },
 ]);

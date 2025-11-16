@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface TextAreaProps {
   /**
@@ -46,15 +46,13 @@ export const TextArea: React.FC<TextAreaProps> = ({
   required = false,
 }) => {
   const baseStyles =
-    'w-full px-4 py-2 font-sans text-base rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 min-h-[100px] resize-vertical';
+    "w-full px-4 py-2 font-sans text-base rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1 min-h-[100px] resize-vertical";
 
   const stateStyles = error
-    ? 'border-2 border-red-500 focus:ring-red-500'
-    : 'border-2 border-gray-300 focus:ring-primary focus:border-primary';
+    ? "border-2 border-red-500 focus:ring-red-500"
+    : "border-2 border-gray-300 focus:ring-primary focus:border-primary";
 
-  const disabledStyles = disabled
-    ? 'bg-gray-100 cursor-not-allowed opacity-60'
-    : 'bg-white';
+  const disabledStyles = disabled ? "bg-gray-100 cursor-not-allowed opacity-60" : "bg-white";
 
   const className = `${baseStyles} ${stateStyles} ${disabledStyles}`;
 
@@ -71,4 +69,3 @@ export const TextArea: React.FC<TextAreaProps> = ({
     />
   );
 };
-

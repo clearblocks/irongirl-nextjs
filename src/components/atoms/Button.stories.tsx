@@ -1,25 +1,30 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
+import { Button } from "./Button";
+
+import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: 'Atoms/Button',
+  title: "Atoms/Button",
   component: Button,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     label: {
-      control: 'text',
-      description: 'Button label text',
+      control: "text",
+      description: "Button label text",
     },
     disabled: {
-      control: 'boolean',
-      description: 'Disabled state with grayscale filter',
+      control: "boolean",
+      description: "Disabled state with grayscale filter",
     },
-    onClick: { 
-      action: 'clicked',
-      description: 'Click handler function',
+    onClick: {
+      action: "clicked",
+      description: "Click handler function",
+    },
+    className: {
+      control: "text",
+      description: "Additional CSS classes",
     },
   },
 } satisfies Meta<typeof Button>;
@@ -29,20 +34,20 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
-    label: 'Primary Button',
+    label: "Primary Button",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: 'Disabled Button',
+    label: "Disabled Button",
     disabled: true,
   },
 };
 
 export const Interactive: Story = {
   args: {
-    label: 'Click Me',
+    label: "Click Me",
   },
   play: async () => {
     // This story demonstrates the onClick behavior
@@ -52,7 +57,23 @@ export const Interactive: Story = {
 
 export const LongLabel: Story = {
   args: {
-    label: 'Button with a Much Longer Label Text',
+    label: "Button with a Much Longer Label Text",
   },
 };
 
+export const FullWidth: Story = {
+  args: {
+    label: "Full Width Button",
+    className: "w-full",
+  },
+  parameters: {
+    layout: "padded",
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ maxWidth: "400px" }}>
+        <Story />
+      </div>
+    ),
+  ],
+};

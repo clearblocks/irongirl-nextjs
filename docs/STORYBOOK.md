@@ -88,20 +88,20 @@ For more details, see [STORYBOOK_LIMITATIONS.md](./STORYBOOK_LIMITATIONS.md)
 ### Basic Story Example
 
 ```typescript
-import type { Meta, StoryObj } from '@storybook/react';
-import { YourComponent } from './YourComponent';
+import type { Meta, StoryObj } from "@storybook/react";
+import { YourComponent } from "./YourComponent";
 
 const meta = {
-  title: 'Atoms/YourComponent',
+  title: "Atoms/YourComponent",
   component: YourComponent,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     variant: {
-      control: 'select',
-      options: ['primary', 'secondary'],
+      control: "select",
+      options: ["primary", "secondary"],
     },
   },
 } satisfies Meta<typeof YourComponent>;
@@ -111,8 +111,8 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    variant: 'primary',
-    children: 'Click me',
+    variant: "primary",
+    children: "Click me",
   },
 };
 ```
@@ -120,12 +120,15 @@ export const Default: Story = {
 ## Component Categories
 
 ### Atoms
+
 Basic building blocks (Button, Input, Label, etc.)
 
 ### Molecules
+
 Combinations of atoms (FormField, Card, etc.)
 
 ### Organisms
+
 Complex components composed of molecules and atoms
 
 ## Demo Components
@@ -133,24 +136,29 @@ Complex components composed of molecules and atoms
 The following demo components are included:
 
 ### Atoms
+
 - **Button**: Configurable button with variants (primary, secondary, outline) and sizes
 - **Input**: Form input with error states and validation
 - **Label**: Form label with required indicator
 
 ### Molecules
+
 - **FormField**: Combined label and input with error/helper text
 - **Card**: Container component with title, content, and footer
 
 ## Configuration
 
 ### Tailwind CSS Support
+
 Storybook is configured to use your project's Tailwind CSS setup, including custom design tokens from `figma-tokens.css`.
 
 ### Next.js Integration
+
 The `@storybook/nextjs` framework adapter is configured to work seamlessly with Next.js 16, including:
+
 - Image optimization
 - Font optimization
-- Path aliases (@/* imports)
+- Path aliases (@/\* imports)
 - CSS modules
 
 ## Docker Configuration
@@ -190,12 +198,15 @@ STORYBOOK_PORT=6006
 ## Troubleshooting
 
 ### Port Already in Use
+
 If port 6006 is already in use, change the `STORYBOOK_PORT` environment variable.
 
 ### Hot Reload Not Working
+
 Ensure the volume mounts in `docker-compose.yml` are correct and Docker has file watching enabled.
 
 ### Build Errors
+
 Run `npm ci` to ensure all dependencies are properly installed, especially Storybook v10.0.6 packages.
 
 ## Resources
@@ -204,4 +215,3 @@ Run `npm ci` to ensure all dependencies are properly installed, especially Story
 - [Storybook for Next.js](https://storybook.js.org/docs/get-started/nextjs)
 - [Writing Stories](https://storybook.js.org/docs/writing-stories)
 - [Component Story Format](https://storybook.js.org/docs/api/csf)
-

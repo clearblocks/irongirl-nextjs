@@ -24,6 +24,7 @@ SMTP_PASS=your-smtp-password
 ## Example Configurations
 
 ### Gmail
+
 ```bash
 MAIL_TO_ADDRESS=your-email@gmail.com
 SMTP_HOST=smtp.gmail.com
@@ -35,6 +36,7 @@ SMTP_PASS=your-app-specific-password
 Note: For Gmail, you'll need to use an [App Password](https://support.google.com/accounts/answer/185833) instead of your regular password.
 
 ### SendGrid
+
 ```bash
 MAIL_TO_ADDRESS=your-email@example.com
 SMTP_HOST=smtp.sendgrid.net
@@ -58,12 +60,13 @@ curl -X POST http://localhost:3000/api/mail \
 ```
 
 Expected response for success:
+
 ```json
-{"success": true}
+{ "success": true }
 ```
 
 Expected response for invalid request:
-```json
-{"error": "Invalid request. Name, email, and message are required and must be non-empty."}
-```
 
+```json
+{ "error": "Invalid request. Name, email, and message are required and must be non-empty." }
+```

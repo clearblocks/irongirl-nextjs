@@ -64,18 +64,22 @@ When you open Storybook, you'll find:
 ## Testing the Setup
 
 ### 1. Open Storybook
+
 Navigate to http://localhost:6006
 
 ### 2. Browse Components
+
 Click on "Atoms" → "Button" in the sidebar
 
 ### 3. Interact with Controls
+
 - Try changing the `variant` dropdown
 - Try changing the `size` dropdown
 - Toggle the `disabled` checkbox
 - Watch the button update in real-time
 
 ### 4. Check Documentation
+
 Click the "Docs" tab to see auto-generated documentation
 
 ## Creating Your First Component Story
@@ -117,16 +121,16 @@ export const Badge: React.FC<BadgeProps> = ({
 Create `src/components/atoms/Badge.stories.tsx`:
 
 ```typescript
-import type { Meta, StoryObj } from '@storybook/react';
-import { Badge } from './Badge';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Badge } from "./Badge";
 
 const meta = {
-  title: 'Atoms/Badge',
+  title: "Atoms/Badge",
   component: Badge,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Badge>;
 
 export default meta;
@@ -134,22 +138,22 @@ type Story = StoryObj<typeof meta>;
 
 export const Blue: Story = {
   args: {
-    children: 'Blue Badge',
-    color: 'blue',
+    children: "Blue Badge",
+    color: "blue",
   },
 };
 
 export const Green: Story = {
   args: {
-    children: 'Green Badge',
-    color: 'green',
+    children: "Green Badge",
+    color: "green",
   },
 };
 
 export const Red: Story = {
   args: {
-    children: 'Red Badge',
-    color: 'red',
+    children: "Red Badge",
+    color: "red",
   },
 };
 ```
@@ -165,6 +169,7 @@ Save both files and Storybook will automatically hot-reload. You'll see "Atoms/B
 **Issue**: Container fails to start or port is in use
 
 **Solution**:
+
 ```bash
 # Stop any running containers
 docker-compose down
@@ -178,6 +183,7 @@ docker-compose up --build storybook
 **Issue**: Code changes don't appear in Storybook
 
 **Solution**:
+
 - Check that files are saved
 - Verify you're editing files inside `src/` directory
 - Check the terminal for any error messages
@@ -188,6 +194,7 @@ docker-compose up --build storybook
 **Issue**: Can't import components with `@/` alias
 
 **Solution**: The path alias is configured in:
+
 - `tsconfig.json` (for TypeScript)
 - `.storybook/main.ts` (for Webpack)
 
@@ -226,6 +233,7 @@ docker-compose up --build storybook
 ## Port Configuration
 
 Default ports:
+
 - Storybook: `6006`
 - Next.js: `3000`
 - PostgreSQL: `5432`
@@ -246,4 +254,3 @@ If you encounter any issues:
 4. Read the detailed documentation in [STORYBOOK.md](./STORYBOOK.md)
 
 Happy component development! 🎨
-

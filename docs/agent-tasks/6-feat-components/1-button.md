@@ -25,6 +25,7 @@ The `list_mcp_resources` command returned "No MCP resources found", which indica
 ### Current Situation
 
 Looking at the requirements in `docs/components.md`:
+
 - **Figma Link**: https://www.figma.com/design/XoWpGTi19gV6LeYqpOJ18n/irongirl-website?node-id=735-21
 - **Variant**: Primary
 - **Props**: label, onClick, disabled, loading
@@ -71,11 +72,13 @@ Perfect! All pages have been successfully updated to use the new Button componen
 ## Updated Files
 
 ### 1. **Admin Login Page** (`src/app/admin/login/page.tsx`)
+
 - ✓ Updated submit button to use `label` prop with conditional text
 - Changed from: `<Button>{isLoading ? 'Authenticating...' : 'Login'}</Button>`
 - Changed to: `<Button label={isLoading ? 'Authenticating...' : 'Login'} />`
 
 ### 2. **Admin Dashboard Page** (`src/app/admin/dashboard/page.tsx`)
+
 - ✓ Updated logout button - removed `variant` and `size` props
 - ✓ Updated "Manage Users" button
 - ✓ Updated "View Reports" button - removed `variant` prop
@@ -83,12 +86,14 @@ Perfect! All pages have been successfully updated to use the new Button componen
 - All buttons now use the `label` prop instead of children
 
 ### 3. **Card Stories** (`src/components/molecules/Card.stories.tsx`)
+
 - ✓ Updated footer buttons in the `WithFooter` story
 - ✓ Removed `variant` and `size` props
 - Changed from: `<Button variant="outline" size="small">Cancel</Button>`
 - Changed to: `<Button label="Cancel" />`
 
 ## Verification
+
 ✓ No linter errors detected
 ✓ All Button usages now follow the new API from Figma design
 ✓ All buttons use the `label` prop as specified in `components.md`

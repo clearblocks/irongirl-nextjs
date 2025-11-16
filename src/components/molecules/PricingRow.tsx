@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export interface PricingRowProps {
   /**
@@ -15,7 +15,8 @@ export const PricingRow: React.FC<PricingRowProps> = ({ name, price }) => {
   // Format price from cents to euros
   const formatPrice = (priceInCents: number): string => {
     const euros = priceInCents / 100;
-    return `€${euros.toFixed(2).replace('.', ',')}`;
+
+    return `€${euros.toFixed(2).replace(".", ",")}`;
   };
 
   return (
@@ -25,4 +26,3 @@ export const PricingRow: React.FC<PricingRowProps> = ({ name, price }) => {
     </div>
   );
 };
-

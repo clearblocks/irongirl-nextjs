@@ -1,17 +1,17 @@
 /**
  * Authentication utility functions for admin access
- * 
+ *
  * Note: Authentication is primarily handled via HttpOnly cookies set by the server.
  * localStorage is used as a secondary indicator for client-side auth state checks.
  */
 
-const TOKEN_KEY = 'admin_token';
+const TOKEN_KEY = "admin_token";
 
 /**
  * Store the admin token in localStorage (for client-side auth state tracking)
  */
 export function setAuthToken(token: string): void {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     localStorage.setItem(TOKEN_KEY, token);
   }
 }
@@ -20,9 +20,10 @@ export function setAuthToken(token: string): void {
  * Get the admin token from localStorage
  */
 export function getAuthToken(): string | null {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     return localStorage.getItem(TOKEN_KEY);
   }
+
   return null;
 }
 
@@ -30,7 +31,7 @@ export function getAuthToken(): string | null {
  * Remove the admin token from localStorage
  */
 export function removeAuthToken(): void {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     localStorage.removeItem(TOKEN_KEY);
   }
 }
@@ -43,14 +44,15 @@ export async function verifyAuth(): Promise<boolean> {
   try {
     // Try to access a protected endpoint
     // The cookie will be sent automatically
-    const response = await fetch('/api/admin/verify', {
-      method: 'GET',
-      credentials: 'include', // Ensure cookies are sent
+    const response = await fetch("/api/admin/verify", {
+      method: "GET",
+      credentials: "include", // Ensure cookies are sent
     });
 
     return response.ok;
   } catch (error) {
-    console.error('Auth verification error:', error);
+    console.error("Auth verification error:", error);
+
     return false;
   }
 }
@@ -61,25 +63,27 @@ export async function verifyAuth(): Promise<boolean> {
  */
 export async function login(token: string): Promise<{ success: boolean; error?: string }> {
   try {
-    const response = await fetch('/api/admin/login', {
-      method: 'POST',
+    const response = await fetch("/api/admin/login", {
+      method: "POST",
       headers: {
-        'Authorization': `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
-      credentials: 'include', // Ensure cookies are received and stored
+      credentials: "include", // Ensure cookies are received and stored
     });
 
     if (response.ok) {
       // Store in localStorage for client-side auth state checks
       setAuthToken(token);
+
       return { success: true };
-    } else {
-      const data = await response.json();
-      return { success: false, error: data.error || 'Authentication failed' };
     }
+    const data = await response.json();
+
+    return { success: false, error: data.error ?? "Authentication failed" };
   } catch (error) {
-    console.error('Login error:', error);
-    return { success: false, error: 'Network error' };
+    console.error("Login error:", error);
+
+    return { success: false, error: "Network error" };
   }
 }
 
@@ -89,15 +93,15 @@ export async function login(token: string): Promise<{ success: boolean; error?: 
 export async function logout(): Promise<void> {
   // Remove from localStorage
   removeAuthToken();
-  
+
   // Call server to clear the HttpOnly cookie
   try {
-    await fetch('/api/admin/login', {
-      method: 'DELETE',
-      credentials: 'include', // Ensure cookies are sent for deletion
+    await fetch("/api/admin/login", {
+      method: "DELETE",
+      credentials: "include", // Ensure cookies are sent for deletion
     });
   } catch (error) {
-    console.error('Logout error:', error);
+    console.error("Logout error:", error);
     // Continue anyway - localStorage is already cleared
   }
 }
@@ -112,11 +116,9 @@ export async function authenticatedFetch(
 ): Promise<Response> {
   return fetch(url, {
     ...options,
-    credentials: 'include', // Ensure cookies are sent
+    credentials: "include", // Ensure cookies are sent
     headers: {
       ...options.headers,
     },
   });
 }
-
-

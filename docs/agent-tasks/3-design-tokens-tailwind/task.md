@@ -38,12 +38,8 @@ Perfect! I've set up your Tailwind theme with the Figma design tokens. Here's wh
 
 ```tsx
 <div className="bg-primary-light p-8">
-  <h1 className="font-hero text-3xl text-primary">
-    Welcome!
-  </h1>
-  <p className="font-sans text-base">
-    Body text using Inter font
-  </p>
+  <h1 className="font-hero text-3xl text-primary">Welcome!</h1>
+  <p className="font-sans text-base">Body text using Inter font</p>
 </div>
 ```
 
@@ -105,10 +101,8 @@ All three fonts from your Figma design tokens are properly installed and working
 
 1. **Inter** (Base Font) - `font-sans`
    - Variable weight, optimized for body text
-   
 2. **Inria Serif** (Hero Font) - `font-hero`
    - Weights: 300, 400, 700
-   
 3. **Kaisei Tokumin** (Header Font) - `font-header`
    - Weights: 400, 500, 700, 800
 

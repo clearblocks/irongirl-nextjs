@@ -1,20 +1,21 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Label } from './Label';
+import { Label } from "./Label";
+
+import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: 'Atoms/Label',
+  title: "Atoms/Label",
   component: Label,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     size: {
-      control: 'select',
-      options: ['small', 'medium', 'large'],
+      control: "select",
+      options: ["small", "medium", "large"],
     },
     required: {
-      control: 'boolean',
+      control: "boolean",
     },
   },
 } satisfies Meta<typeof Label>;
@@ -24,35 +25,34 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    children: 'Form Label',
+    children: "Form Label",
   },
 };
 
 export const Required: Story = {
   args: {
-    children: 'Required Field',
+    children: "Required Field",
     required: true,
   },
 };
 
 export const Small: Story = {
   args: {
-    children: 'Small Label',
-    size: 'small',
+    children: "Small Label",
+    size: "small",
   },
 };
 
 export const Medium: Story = {
   args: {
-    children: 'Medium Label',
-    size: 'medium',
+    children: "Medium Label",
+    size: "medium",
   },
 };
 
 export const Large: Story = {
   args: {
-    children: 'Large Label',
-    size: 'large',
+    children: "Large Label",
+    size: "large",
   },
 };
-

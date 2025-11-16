@@ -22,20 +22,21 @@ Switched to **cookie-based authentication** with HttpOnly cookies:
 
 ```typescript
 // On successful authentication, set HttpOnly cookie
-response.cookies.set('admin_token', token, {
+response.cookies.set("admin_token", token, {
   httpOnly: true, // Prevent JavaScript access
-  secure: process.env.NODE_ENV === 'production', // HTTPS only in prod
-  sameSite: 'lax', // CSRF protection
+  secure: process.env.NODE_ENV === "production", // HTTPS only in prod
+  sameSite: "lax", // CSRF protection
   maxAge: 60 * 60 * 24 * 7, // 7 days
-  path: '/',
+  path: "/",
 });
 ```
 
 Added DELETE endpoint for logout:
+
 ```typescript
 export async function DELETE() {
   const response = NextResponse.json({ success: true }, { status: 200 });
-  response.cookies.delete('admin_token');
+  response.cookies.delete("admin_token");
   return response;
 }
 ```
@@ -46,11 +47,11 @@ Changed from reading Authorization header to reading cookie:
 
 ```typescript
 // Before:
-const authHeader = request.headers.get('authorization');
+const authHeader = request.headers.get("authorization");
 const token = authHeader.substring(7);
 
 // After:
-const token = request.cookies.get('admin_token')?.value;
+const token = request.cookies.get("admin_token")?.value;
 ```
 
 ### 3. Auth Utilities (`src/lib/auth.ts`)
@@ -63,9 +64,10 @@ const token = request.cookies.get('admin_token')?.value;
 ### 4. New Verify Endpoint (`src/app/api/admin/verify/route.ts`)
 
 Created new endpoint for client-side auth verification:
+
 ```typescript
 export async function GET(request: NextRequest) {
-  const token = request.cookies.get('admin_token')?.value;
+  const token = request.cookies.get("admin_token")?.value;
   // Validate token and return authentication status
 }
 ```
@@ -79,10 +81,11 @@ export async function GET(request: NextRequest) {
 ### 6. Dashboard Page
 
 Updated logout handler to be async:
+
 ```typescript
 const handleLogout = async () => {
   await logout();
-  router.push('/');
+  router.push("/");
 };
 ```
 
@@ -114,7 +117,7 @@ The authentication flow now works as expected:
 ## Key Takeaway
 
 When implementing authentication in web applications:
+
 - Use **cookies** for authentication state that needs to persist across page navigations
 - Use **Authorization headers** for API requests where you have full control over the request
 - Remember that browser navigation is different from programmatic fetch requests
-

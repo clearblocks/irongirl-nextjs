@@ -1,25 +1,26 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { FormField } from './FormField';
+import { FormField } from "./FormField";
+
+import type { Meta, StoryObj } from "@storybook/react";
 
 const meta = {
-  title: 'Molecules/FormField',
+  title: "Molecules/FormField",
   component: FormField,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     type: {
-      control: 'select',
-      options: ['text', 'email', 'password', 'number', 'tel', 'url'],
+      control: "select",
+      options: ["text", "email", "password", "number", "tel", "url"],
     },
     disabled: {
-      control: 'boolean',
+      control: "boolean",
     },
     required: {
-      control: 'boolean',
+      control: "boolean",
     },
-    onChange: { action: 'changed' },
+    onChange: { action: "changed" },
   },
 } satisfies Meta<typeof FormField>;
 
@@ -28,58 +29,57 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    label: 'Email Address',
-    id: 'email',
-    type: 'email',
-    placeholder: 'Enter your email...',
+    label: "Email Address",
+    id: "email",
+    type: "email",
+    placeholder: "Enter your email...",
   },
 };
 
 export const WithValue: Story = {
   args: {
-    label: 'Username',
-    id: 'username',
-    value: 'johndoe',
-    placeholder: 'Enter username...',
+    label: "Username",
+    id: "username",
+    value: "johndoe",
+    placeholder: "Enter username...",
   },
 };
 
 export const Required: Story = {
   args: {
-    label: 'Password',
-    id: 'password',
-    type: 'password',
-    placeholder: 'Enter password...',
+    label: "Password",
+    id: "password",
+    type: "password",
+    placeholder: "Enter password...",
     required: true,
   },
 };
 
 export const WithHelperText: Story = {
   args: {
-    label: 'Phone Number',
-    id: 'phone',
-    type: 'tel',
-    placeholder: '+1 (555) 123-4567',
-    helperText: 'Include country code for international numbers',
+    label: "Phone Number",
+    id: "phone",
+    type: "tel",
+    placeholder: "+1 (555) 123-4567",
+    helperText: "Include country code for international numbers",
   },
 };
 
 export const WithError: Story = {
   args: {
-    label: 'Email Address',
-    id: 'email-error',
-    type: 'email',
-    value: 'invalid-email',
-    errorMessage: 'Please enter a valid email address',
+    label: "Email Address",
+    id: "email-error",
+    type: "email",
+    value: "invalid-email",
+    errorMessage: "Please enter a valid email address",
   },
 };
 
 export const Disabled: Story = {
   args: {
-    label: 'Disabled Field',
-    id: 'disabled',
-    value: 'Cannot edit this',
+    label: "Disabled Field",
+    id: "disabled",
+    value: "Cannot edit this",
     disabled: true,
   },
 };
-

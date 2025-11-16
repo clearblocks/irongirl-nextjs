@@ -1,5 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import nodemailer from 'nodemailer';
+import { type NextRequest, NextResponse } from "next/server";
+
+import nodemailer from "nodemailer";
 
 interface MailRequest {
   name: string;
@@ -9,23 +10,23 @@ interface MailRequest {
 
 // Validate that all fields are present and non-empty
 function isValidMailRequest(body: unknown): body is MailRequest {
-  if (!body || typeof body !== 'object') {
+  if (!body || typeof body !== "object") {
     return false;
   }
 
   const { name, email, message } = body as Record<string, unknown>;
 
   return (
-    typeof name === 'string' &&
+    typeof name === "string" &&
     name.trim().length > 0 &&
-    typeof email === 'string' &&
+    typeof email === "string" &&
     email.trim().length > 0 &&
-    typeof message === 'string' &&
+    typeof message === "string" &&
     message.trim().length > 0
   );
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     // Parse request body
     const body = await request.json();
@@ -33,7 +34,7 @@ export async function POST(request: NextRequest) {
     // Validate request
     if (!isValidMailRequest(body)) {
       return NextResponse.json(
-        { error: 'Invalid request. Name, email, and message are required and must be non-empty.' },
+        { error: "Invalid request. Name, email, and message are required and must be non-empty." },
         { status: 400 }
       );
     }
@@ -49,11 +50,9 @@ export async function POST(request: NextRequest) {
 
     // Validate environment configuration
     if (!mailToAddress || !smtpHost || !smtpPort || !smtpUser || !smtpPass) {
-      console.error('Mail configuration missing in environment variables');
-      return NextResponse.json(
-        { error: 'Server configuration error' },
-        { status: 500 }
-      );
+      console.error("Mail configuration missing in environment variables");
+
+      return NextResponse.json({ error: "Server configuration error" }, { status: 500 });
     }
 
     // Create transporter with SMTP settings
@@ -87,11 +86,8 @@ ${message}`,
 
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
-    console.error('Error sending email:', error);
-    return NextResponse.json(
-      { error: 'Failed to send email' },
-      { status: 500 }
-    );
+    console.error("Error sending email:", error);
+
+    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
   }
 }
-

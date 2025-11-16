@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 export interface InputProps {
   /**
    * Input type
    */
-  type?: 'text' | 'email' | 'password' | 'number' | 'tel' | 'url';
+  type?: "text" | "email" | "password" | "number" | "tel" | "url";
   /**
    * Input placeholder
    */
@@ -40,7 +40,7 @@ export interface InputProps {
 }
 
 export const Input: React.FC<InputProps> = ({
-  type = 'text',
+  type = "text",
   placeholder,
   value,
   onChange,
@@ -51,15 +51,13 @@ export const Input: React.FC<InputProps> = ({
   required = false,
 }) => {
   const baseStyles =
-    'w-full px-4 py-2 font-sans text-base rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1';
+    "w-full px-4 py-2 font-sans text-base rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-1";
 
   const stateStyles = error
-    ? 'border-2 border-red-500 focus:ring-red-500'
-    : 'border-2 border-gray-300 focus:ring-primary focus:border-primary';
+    ? "border-2 border-red-500 focus:ring-red-500"
+    : "border-2 border-gray-300 focus:ring-primary focus:border-primary";
 
-  const disabledStyles = disabled
-    ? 'bg-gray-100 cursor-not-allowed opacity-60'
-    : 'bg-white';
+  const disabledStyles = disabled ? "bg-gray-100 cursor-not-allowed opacity-60" : "bg-white";
 
   const className = `${baseStyles} ${stateStyles} ${disabledStyles}`;
 
@@ -77,4 +75,3 @@ export const Input: React.FC<InputProps> = ({
     />
   );
 };
-

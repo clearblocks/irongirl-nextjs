@@ -53,6 +53,7 @@ Perfect! I've successfully set up Storybook v10.0.6 for your Next.js project. He
 ## ✅ What Was Completed
 
 ### 1. **Storybook Installation & Configuration**
+
 - Added Storybook v10.0.6 packages to `package.json`:
   - `@storybook/nextjs`
   - `@storybook/react`
@@ -65,6 +66,7 @@ Perfect! I've successfully set up Storybook v10.0.6 for your Next.js project. He
 - Created `.storybook/preview.ts` with global styles and parameters
 
 ### 2. **Docker Setup**
+
 - Created `Dockerfile.storybook` for containerized Storybook
 - Updated `docker-compose.yml` with a separate Storybook service
 - Storybook runs on port `6006` (configurable via `STORYBOOK_PORT`)
@@ -72,15 +74,18 @@ Perfect! I've successfully set up Storybook v10.0.6 for your Next.js project. He
 ### 3. **Demo Components Created**
 
 **Atoms (3 components, 19 stories total):**
+
 - `Button.tsx` - Configurable button with variants, sizes, and states (7 stories)
 - `Input.tsx` - Form input with error states and validation (7 stories)
 - `Label.tsx` - Form label with required indicator (5 stories)
 
 **Molecules (2 components, 13 stories total):**
+
 - `FormField.tsx` - Combined label + input with error/helper text (6 stories)
 - `Card.tsx` - Container component with title, content, and footer (7 stories)
 
 All components:
+
 - ✅ Use TypeScript with proper types
 - ✅ Include JSDoc documentation
 - ✅ Follow design system tokens
@@ -88,6 +93,7 @@ All components:
 - ✅ Support interactive controls
 
 ### 4. **Documentation**
+
 - Created `docs/STORYBOOK.md` - Comprehensive Storybook documentation
 - Created `docs/QUICK_START_STORYBOOK.md` - Quick start guide
 - Created `src/stories/Introduction.mdx` - Welcome page in Storybook
@@ -95,7 +101,9 @@ All components:
 - Updated `.gitignore` to exclude `storybook-static`
 
 ### 5. **Package Scripts**
+
 Added to `package.json`:
+
 ```json
 "storybook": "storybook dev -p 6006"
 "build-storybook": "storybook build"
@@ -104,6 +112,7 @@ Added to `package.json`:
 ## 🚀 Getting Started
 
 ### Step 1: Install Dependencies
+
 ```bash
 # Using Docker (recommended - dependencies install automatically)
 docker-compose up --build storybook
@@ -113,6 +122,7 @@ yarn install
 ```
 
 ### Step 2: Start Storybook
+
 ```bash
 # Using Docker
 docker-compose up storybook
@@ -122,6 +132,7 @@ yarn storybook
 ```
 
 ### Step 3: Open in Browser
+
 Navigate to **http://localhost:6006**
 
 ## 📁 File Structure
@@ -194,7 +205,7 @@ I removed dependencies:
 
 Because they do not exist with this version yet. I also removed the these addons from .storybook/mian.ts.
 
-When I run `yarn run storybook` I get the error: 
+When I run `yarn run storybook` I get the error:
 
 ```
 => Failed to build the preview
@@ -229,7 +240,7 @@ Great! I can see you've already updated the `package.json` correctly. The config
 
 [2 tools called]
 
-Good news! The `__dirname` error is fixed - we're past that configuration issue. The current error is a system-level network interface error that's happening because of the sandbox environment. 
+Good news! The `__dirname` error is fixed - we're past that configuration issue. The current error is a system-level network interface error that's happening because of the sandbox environment.
 
 The Storybook configuration is now correct. Let me create a simple script to verify everything works properly:
 
@@ -248,34 +259,39 @@ Excellent! I've fixed the `__dirname` error and optimized the configuration. Her
 ## ✅ Fixed Issues
 
 ### 1. **Removed `__dirname` Error**
-   - **Problem**: `__dirname` is not available in ES modules (Storybook 10 uses ESM)
-   - **Solution**: Removed the unnecessary `webpackFinal` configuration entirely
-   - **Why it works**: `@storybook/nextjs` automatically handles path aliases from your `tsconfig.json`
+
+- **Problem**: `__dirname` is not available in ES modules (Storybook 10 uses ESM)
+- **Solution**: Removed the unnecessary `webpackFinal` configuration entirely
+- **Why it works**: `@storybook/nextjs` automatically handles path aliases from your `tsconfig.json`
 
 ### 2. **Simplified Configuration**
-   The `.storybook/main.ts` is now much cleaner:
-   ```typescript
-   import type { StorybookConfig } from '@storybook/nextjs';
 
-   const config: StorybookConfig = {
-     stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-     addons: ['@storybook/addon-links'],
-     framework: {
-       name: '@storybook/nextjs',
-       options: {},
-     },
-     staticDirs: ['../public'],
-   };
+The `.storybook/main.ts` is now much cleaner:
 
-   export default config;
-   ```
+```typescript
+import type { StorybookConfig } from "@storybook/nextjs";
+
+const config: StorybookConfig = {
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  addons: ["@storybook/addon-links"],
+  framework: {
+    name: "@storybook/nextjs",
+    options: {},
+  },
+  staticDirs: ["../public"],
+};
+
+export default config;
+```
 
 ### 3. **Fixed Network Binding**
-   - **Local**: `yarn storybook` now binds to `127.0.0.1:6006`
-   - **Docker**: Uses `0.0.0.0:6006` to accept connections from host machine
+
+- **Local**: `yarn storybook` now binds to `127.0.0.1:6006`
+- **Docker**: Uses `0.0.0.0:6006` to accept connections from host machine
 
 ### 4. **Docker Configuration**
-   Updated `Dockerfile.storybook` to use direct storybook command with proper host binding
+
+Updated `Dockerfile.storybook` to use direct storybook command with proper host binding
 
 ## 🚀 Ready to Use
 
@@ -297,6 +313,7 @@ Then visit: **http://localhost:6006**
 ## 📚 Documentation
 
 I've created a detailed fix document at `docs/STORYBOOK_FIX.md` that explains:
+
 - The root cause of the error
 - Why the fix works
 - Key learnings about ES modules and Storybook 10
@@ -356,24 +373,29 @@ Perfect! I've fixed the MDX issue. Here's what I did:
 ## ✅ Fixed: MDX Parse Error
 
 ### Problem
+
 The MDX file required `@storybook/addon-docs` (part of `addon-essentials`) which isn't available in Storybook v10.0.6.
 
 ### Solution
 
 **1. Removed the MDX file**
+
 - Deleted `src/stories/Introduction.mdx`
 
 **2. Created a TSX-based Welcome page**
+
 - Created `src/stories/Welcome.stories.tsx` with the same content
 - Uses standard React components instead of MDX
 - Fully styled with Tailwind CSS
 - Displays all the same information
 
 **3. Updated Configuration**
+
 - Removed `.mdx` from the stories pattern in `.storybook/main.ts`
 - Now only looks for `.stories.@(js|jsx|mjs|ts|tsx)` files
 
 **4. Updated Documentation**
+
 - Created `docs/STORYBOOK_LIMITATIONS.md` - Comprehensive guide about version limitations
 - Updated `docs/STORYBOOK.md` - Added note about MDX support
 - Updated `docs/STORYBOOK_FIX.md` - Documented the removed packages
@@ -403,6 +425,7 @@ In Storybook you'll see:
 3. **Molecules** - FormField, Card components
 
 All stories include:
+
 - ✅ Interactive controls
 - ✅ Multiple story variants
 - ✅ TypeScript types

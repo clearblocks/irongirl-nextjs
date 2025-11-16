@@ -75,9 +75,7 @@ You can also access the design tokens directly via CSS custom properties:
 export default function HeroSection() {
   return (
     <section className="bg-primary-light p-8">
-      <h1 className="font-hero text-3xl text-primary mb-4">
-        Welcome to IronGirl
-      </h1>
+      <h1 className="font-hero text-3xl text-primary mb-4">Welcome to IronGirl</h1>
       <p className="font-sans text-base text-foreground leading-list">
         This is an example using our Figma design tokens with Tailwind.
       </p>
@@ -111,4 +109,3 @@ Fonts are optimized and self-hosted by Next.js for performance.
 - Font files are automatically optimized and self-hosted by Next.js
 - All colors use hex values as exported from Figma
 - Build tested and verified ✓
-

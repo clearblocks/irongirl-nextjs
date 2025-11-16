@@ -7,6 +7,7 @@ The admin authentication now supports **30-day persistent login** with automatic
 ## What Changed
 
 ### Single Update Required
+
 Updated cookie expiration in `/src/app/api/admin/login/route.ts`:
 
 ```typescript
@@ -20,6 +21,7 @@ maxAge: 60 * 60 * 24 * 30, // 30 days
 ## How It Works
 
 ### 1. **Login Sets Long-Lived Cookie**
+
 ```
 User logs in
   ↓
@@ -31,11 +33,13 @@ Cookie stored on user's device
 ```
 
 ### 2. **Cookie Persists Across Sessions**
+
 - Cookie is NOT session-only (has explicit maxAge)
 - Survives browser close, system restart, etc.
 - Valid for 30 days from login
 
 ### 3. **Automatic Re-Authentication**
+
 ```
 User returns after closing browser
   ↓
@@ -49,16 +53,18 @@ Middleware validates cookie
 ```
 
 ### 4. **Login Page Auto-Redirect**
+
 ```typescript
 // In /admin/login page.tsx
 useEffect(() => {
   if (isAuthenticated && !authLoading) {
-    router.push('/admin/dashboard');
+    router.push("/admin/dashboard");
   }
 }, [isAuthenticated, authLoading, router]);
 ```
 
 If user visits `/admin/login` while cookie is still valid:
+
 - `useAuth` hook detects valid session
 - Automatically redirects to dashboard
 - User never sees login form
@@ -66,19 +72,23 @@ If user visits `/admin/login` while cookie is still valid:
 ## User Experience Flow
 
 ### First Login
+
 1. User visits `/admin/login`
 2. Enters token
 3. Redirected to `/admin/dashboard`
 4. Cookie stored (30 days)
 
 ### Subsequent Visits (within 30 days)
+
 **Option A: Direct to Dashboard**
+
 1. User visits `/admin/dashboard`
 2. Cookie sent automatically
 3. Middleware validates
 4. ✅ Dashboard shown (no login)
 
 **Option B: Via Login Page**
+
 1. User visits `/admin/login`
 2. Cookie sent automatically
 3. `useAuth` detects authentication
@@ -86,6 +96,7 @@ If user visits `/admin/login` while cookie is still valid:
 5. ✅ Dashboard shown (no login)
 
 ### After 30 Days
+
 1. Cookie expires
 2. User visits `/admin/dashboard`
 3. No valid cookie found
@@ -95,12 +106,12 @@ If user visits `/admin/login` while cookie is still valid:
 ## Cookie Configuration
 
 ```typescript
-response.cookies.set('admin_token', token, {
-  httpOnly: true,        // JavaScript can't access (XSS protection)
-  secure: true,          // HTTPS only in production
-  sameSite: 'lax',       // CSRF protection
-  maxAge: 60 * 60 * 24 * 30,  // 30 days in seconds
-  path: '/',             // Available site-wide
+response.cookies.set("admin_token", token, {
+  httpOnly: true, // JavaScript can't access (XSS protection)
+  secure: true, // HTTPS only in production
+  sameSite: "lax", // CSRF protection
+  maxAge: 60 * 60 * 24 * 30, // 30 days in seconds
+  path: "/", // Available site-wide
 });
 ```
 
@@ -115,6 +126,7 @@ response.cookies.set('admin_token', token, {
 ## Testing the 30-Day Persistence
 
 ### Test 1: Basic Persistence
+
 ```bash
 1. Login to /admin/dashboard
 2. Close browser completely
@@ -123,6 +135,7 @@ response.cookies.set('admin_token', token, {
 ```
 
 ### Test 2: Login Page Redirect
+
 ```bash
 1. Login to /admin/dashboard
 2. Close browser
@@ -131,6 +144,7 @@ response.cookies.set('admin_token', token, {
 ```
 
 ### Test 3: Expiration
+
 ```bash
 1. Login to /admin/dashboard
 2. Manually edit cookie expiration to past date (via browser dev tools)
@@ -139,6 +153,7 @@ response.cookies.set('admin_token', token, {
 ```
 
 ### Test 4: Cross-Tab Persistence
+
 ```bash
 1. Login in Tab 1
 2. Open Tab 2
@@ -160,11 +175,13 @@ response.cookies.set('admin_token', token, {
 ## Security Notes
 
 ### Benefits
+
 - **Convenience**: Users don't need to login every time
 - **Security**: HttpOnly prevents XSS token theft
 - **CSRF Protection**: SameSite flag prevents cross-site attacks
 
 ### Considerations for Production
+
 - Consider adding "Remember Me" checkbox (7 days vs 30 days)
 - Implement refresh token mechanism for longer sessions
 - Add activity-based expiration (not just time-based)
@@ -191,6 +208,7 @@ You can verify the cookie in browser DevTools:
 ## Summary
 
 The system now supports **30-day persistent login** with:
+
 - ✅ Cookie-based authentication
 - ✅ Automatic login bypass
 - ✅ Session survival across browser restarts
@@ -198,4 +216,3 @@ The system now supports **30-day persistent login** with:
 - ✅ Seamless user experience
 
 No additional code changes needed - the architecture already supported this, only the expiration time was updated!
-

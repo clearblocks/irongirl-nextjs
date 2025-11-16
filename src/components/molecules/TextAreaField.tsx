@@ -1,6 +1,7 @@
-import React from 'react';
-import { Label } from '../atoms/Label';
-import { TextArea } from '../atoms/TextArea';
+import React from "react";
+
+import { Label } from "../atoms/Label";
+import { TextArea } from "../atoms/TextArea";
 
 export interface TextAreaFieldProps {
   /**
@@ -64,10 +65,7 @@ export const TextAreaField: React.FC<TextAreaFieldProps> = ({
         value={value}
         onChange={onChange}
       />
-      {hasError && (
-        <p className="text-sm text-red-500 font-sans mt-1">{errorMessage}</p>
-      )}
+      {hasError && <p className="text-sm text-red-500 font-sans mt-1">{errorMessage}</p>}
     </div>
   );
 };
-

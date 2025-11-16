@@ -13,6 +13,7 @@ Perfect! I've analyzed your project and found the issue. Your project is using *
 However, to improve IDE support and make the configuration more explicit, let me create a proper setup. Here's what I found:
 
 ## Current Status:
+
 - ✅ Tailwind CSS v4 is installed
 - ✅ PostCSS is configured correctly
 - ✅ globals.css uses `@import "tailwindcss"` (correct for v4)
@@ -103,6 +104,7 @@ I've analyzed your project and found the issue you mentioned. Your project uses 
 ### Key Differences: Tailwind v3 vs v4
 
 **v3 (Old):**
+
 ```javascript
 // tailwind.config.js (required)
 module.exports = {
@@ -111,6 +113,7 @@ module.exports = {
 ```
 
 **v4 (Current):**
+
 ```css
 /* globals.css */
 @import "tailwindcss";
@@ -125,7 +128,7 @@ module.exports = {
 
 ```
 ✅ tailwind.config.ts        → Content paths & IDE support
-✅ postcss.config.mjs         → PostCSS integration  
+✅ postcss.config.mjs         → PostCSS integration
 ✅ src/app/globals.css        → Theme configuration (@theme)
 ✅ src/styles/figma-tokens.css → Design tokens
 ✅ .storybook/preview.ts      → Auto-inherits styles
@@ -134,6 +137,7 @@ module.exports = {
 ### Available Tailwind Classes:
 
 All your Figma design tokens are mapped:
+
 - **Colors**: `bg-primary`, `bg-primary-light`, `bg-header`, `bg-header-light`
 - **Fonts**: `font-hero`, `font-sans`, `font-header`
 - **Sizes**: `text-xs`, `text-base`, `text-xl`, `text-2xl`, `text-3xl`
@@ -143,18 +147,15 @@ All your Figma design tokens are mapped:
 
 ```tsx
 <div className="bg-primary-light p-8 rounded-lg">
-  <h1 className="font-hero text-3xl text-primary">
-    Welcome
-  </h1>
-  <p className="font-sans text-base leading-list">
-    Body text
-  </p>
+  <h1 className="font-hero text-3xl text-primary">Welcome</h1>
+  <p className="font-sans text-base leading-list">Body text</p>
 </div>
 ```
 
 ### Note on Linting Errors:
 
 There are **pre-existing linting errors** in the codebase (95 total) that are unrelated to the Tailwind configuration:
+
 - Import order issues
 - Missing return types
 - Authentication code style issues

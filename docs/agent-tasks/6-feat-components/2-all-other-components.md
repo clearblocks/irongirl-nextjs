@@ -27,6 +27,7 @@ Perfect! All components have been created successfully with no linting errors. L
 I've successfully created all the components from `components.md` (except Button which already existed):
 
 ### Atoms Created:
+
 1. **TextArea** - A textarea input component similar to the Input component
    - Props: `placeholder`, `value`, `onChange`, `disabled`, `error`, `name`, `id`, `required`
    - Includes error and disabled states
@@ -37,6 +38,7 @@ I've successfully created all the components from `components.md` (except Button
    - Story file with examples using existing SVG icons
 
 ### Molecules Created:
+
 3. **PricingRow** - Displays a service name and price in a row with border
    - Props: `name` (string), `price` (number in cents)
    - Automatically formats price from cents to euros with proper formatting (€16,50)
@@ -44,6 +46,7 @@ I've successfully created all the components from `components.md` (except Button
    - Story file with various examples
 
 ### Organisms Created:
+
 4. **PricingTable** - A card displaying pricing information
    - Props: `title` (optional), `subtitle` (optional), `priceItems` (array)
    - Uses the PricingRow molecule for each item
@@ -65,6 +68,7 @@ I've successfully created all the components from `components.md` (except Button
    - Story file with multiple service examples
 
 All components:
+
 - ✅ Follow the project's Tailwind styling approach
 - ✅ Use proper design tokens (colors, fonts, spacing)
 - ✅ Include TypeScript interfaces with proper documentation
@@ -95,10 +99,12 @@ Let me fix the ServiceCard and PricingTable components:
 Perfect! I've fixed the issue. The problem was that I was using `bg-primary-400` which isn't defined in the Tailwind theme. The correct class name is `bg-primary-light` which maps to `--color-primary-400` (#fdeef5 - the light pink color).
 
 **Changes made:**
+
 - Updated `ServiceCard.tsx` to use `bg-primary-light` instead of `bg-primary-400`
 - Updated `PricingTable.tsx` to use `bg-primary-light` instead of `bg-primary-400`
 
 Now both components will properly display:
+
 - ✅ Light pink background color (#fdeef5)
 - ✅ Border radius (30px for ServiceCard, 5px for PricingTable)
 
@@ -117,9 +123,11 @@ I'll update both components to use semantic header elements instead of paragraph
 Perfect! I've updated both components to use semantic header elements:
 
 **ServiceCard:**
+
 - Title now uses `<h2>` instead of `<p>`
 
 **PricingTable:**
+
 - Title now uses `<h3>` instead of `<p>`
 - Subtitle now uses `<h4>` instead of `<p>`
 

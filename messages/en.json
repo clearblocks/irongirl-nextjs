@@ -1,0 +1,19 @@
+{
+  "common": {
+    "language": "Language",
+    "english": "English",
+    "dutch": "Dutch"
+  },
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "pricing": "Pricing",
+    "contact": "Contact"
+  },
+  "homepage": {
+    "title": "Welcome to Iron Girl",
+    "subtitle": "Your subtitle here",
+    "cta": "Get Started"
+  }
+}

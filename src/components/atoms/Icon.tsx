@@ -1,4 +1,6 @@
-import React from 'react';
+import React from "react";
+
+import Image from "next/image";
 
 export interface IconProps {
   /**
@@ -12,6 +14,5 @@ export interface IconProps {
 }
 
 export const Icon: React.FC<IconProps> = ({ src, alt }) => {
-  return <img src={src} alt={alt} className="inline-block" />;
+  return <Image src={src} alt={alt} className="inline-block" />;
 };
-
