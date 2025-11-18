@@ -3,3 +3,5 @@ export type { PricingTableProps, PriceItem } from "./PricingTable";
 
 export { ServiceCard } from "./ServiceCard";
 export type { ServiceCardProps } from "./ServiceCard";
+
+export { ContactForm } from "./ContactForm";

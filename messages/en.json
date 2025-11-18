@@ -11,9 +11,154 @@
     "pricing": "Pricing",
     "contact": "Contact"
   },
-  "homepage": {
-    "title": "Welcome to Iron Girl",
-    "subtitle": "Your subtitle here",
-    "cta": "Get Started"
+  "header": {
+    "logoText": "Irongirl"
+  },
+  "hero": {
+    "line1": "Ironing Service",
+    "line2": "Vleuten/De Meern",
+    "line3": "Personal service",
+    "line4": "Fast, affordable",
+    "line5": "and good",
+    "phoneLabel": "Phone or WhatsApp",
+    "phoneNumber": "06-33401173"
+  },
+  "services": {
+    "washing": {
+      "title": "Washing",
+      "description": "Leave your laundry to us worry-free for a fresh and clean wardrobe.",
+      "buttonLabel": "More"
+    },
+    "ironing": {
+      "title": "Ironing",
+      "description": "Discover how easy it is to have your ironing done by Iron Girl.",
+      "buttonLabel": "More"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Get in touch, tell us what we can do for you, and make an appointment.",
+      "buttonLabel": "More"
+    },
+    "pricing": {
+      "title": "Pricing",
+      "description": "We take care of ironing many products, from clothing to linens, at an affordable price.",
+      "buttonLabel": "More"
+    }
+  },
+  "whatsappCta": {
+    "title": "Make an appointment via WhatsApp",
+    "buttonLabel": "Click here",
+    "phoneNumber": "+31612345678"
+  },
+  "about": {
+    "header": "Iron Girl Washing and Ironing Service",
+    "intro1": "Are you too busy and have no time to wash or iron?",
+    "intro2": "We'll gladly take it off your hands.",
+    "intro3": "Is ironing too heavy for you or do you have too much to iron?",
+    "intro4": "We take care of all your ironing, from clothing to bedding and linens.",
+    "intro5": "Even if you prefer to leave the washing to us, you can count on us. It's even easier to let us handle both the washing and ironing.",
+    "intro6": "This makes your life easier, and you'll have more time for fun things. You can always contact us to bring your laundry and ironing to us in Vleuten."
+  },
+  "method": {
+    "header": "Our Method",
+    "steps": [
+      "Make an appointment: let us know how much ironing you have",
+      "Drop off your ironing at my location",
+      "Let us know which items you want hung and which folded",
+      "We'll tell you when you can pick up your ironing",
+      "We ensure everything is perfectly ironed",
+      "Upon pickup, everything is neatly folded and hung as desired",
+      "There is currently no pickup and delivery service available"
+    ],
+    "washingTitle": "Washing",
+    "washingSteps": [
+      "We prefer to receive laundry in a bag, possibly also in a basket",
+      "Separate whites and colors",
+      "30 degrees",
+      "Drying",
+      "Folding"
+    ],
+    "ironingTitle": "Ironing",
+    "ironingSteps": [
+      "It's helpful if you can provide your own hangers",
+      "We ensure everything is perfectly ironed",
+      "You can pick up your ironing within 3 days"
+    ]
+  },
+  "contact": {
+    "header": "Contact",
+    "callUs": "Call us",
+    "phoneNumber": "06-33401173",
+    "address": "Paddenstoelenlaan 15\n3451 PZ Vleuten",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Paddenstoelenlaan+15,+3451+PZ+Vleuten",
+    "formTitle": "Send a message",
+    "nameLabel": "Name",
+    "emailLabel": "Email address",
+    "phoneLabel": "Phone",
+    "messageLabel": "Message",
+    "submitButton": "Send",
+    "namePlaceholder": "",
+    "emailPlaceholder": "",
+    "phonePlaceholder": "",
+    "messagePlaceholder": "",
+    "nameRequired": "Name is required",
+    "emailRequired": "Email address is required",
+    "emailInvalid": "Email address is not valid",
+    "messageRequired": "Message is required",
+    "submitSuccess": "Message sent successfully!",
+    "submitError": "An error occurred while sending the message."
+  },
+  "pricing": {
+    "header": "Pricing",
+    "paymentNote": "Payment can be made with Tikkie",
+    "washing": {
+      "title": "Washing",
+      "items": [
+        { "name": "Up to 6 kg", "price": "€16.50" },
+        { "name": "Each extra kg", "price": "€2.50" }
+      ]
+    },
+    "ironingAdults": {
+      "title": "Ironing",
+      "subtitle": "Women's and men's clothing",
+      "items": [
+        { "name": "Shirt", "price": "€1.80" },
+        { "name": "Blouse", "price": "€1.80" },
+        { "name": "Blouse or short-sleeved shirt", "price": "€1.80" },
+        { "name": "Blazer", "price": "€1.80" },
+        { "name": "Vest", "price": "€1.80" },
+        { "name": "Skirt", "price": "€1.80" },
+        { "name": "Shorts", "price": "€1.80" }
+      ]
+    },
+    "ironingChildren": {
+      "subtitle": "Children's clothing up to size 158",
+      "items": [
+        { "name": "Shirt", "price": "€1.80" },
+        { "name": "Blouse", "price": "€1.80" },
+        { "name": "Blouse or short-sleeved shirt", "price": "€1.80" },
+        { "name": "Blazer", "price": "€1.80" },
+        { "name": "Vest", "price": "€1.80" },
+        { "name": "Skirt", "price": "€1.80" },
+        { "name": "Shorts", "price": "€1.80" }
+      ]
+    },
+    "linens": {
+      "subtitle": "Linens and bedding",
+      "items": [
+        { "name": "Single sheet", "price": "€2.20" },
+        { "name": "Double sheet", "price": "€3.00" },
+        { "name": "Single duvet cover", "price": "€2.50" },
+        { "name": "Double duvet cover", "price": "€3.70" },
+        { "name": "Pillowcase", "price": "€1.00" },
+        { "name": "Tablecloth", "price": "€3.00" },
+        { "name": "Table runner", "price": "€1.10" }
+      ]
+    }
+  },
+  "footer": {
+    "copyright": "© Copyright 2025 irongirl.nl",
+    "address": "Paddenstoelenlaan 15, 3451 PZ Vleuten",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Paddenstoelenlaan+15,+3451+PZ+Vleuten"
   }
 }

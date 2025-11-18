@@ -16,7 +16,7 @@ The page is composed of several blocks that are stacked vertically. I will descr
 
 ### Header
 
-Contains the logo on the right side. Nothing more.
+Contains the logo on the right side. It should also contain the LanguageSwitcher, although this is not present in the Figma design.
 
 ### Hero
 
@@ -28,7 +28,7 @@ Contains 4 ServiceCards. For Washing, Ironing, Contact and Pricing.
 
 ### WhatsApp CTA
 
-Contains a link that will open a WhatsApp message to the irongirl WhatsApp
+Contains a link that will open a WhatsApp message to the irongirl WhatsApp (hardcoded to +31612345678)
 
 ### Header Container
 

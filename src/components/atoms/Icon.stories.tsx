@@ -18,6 +18,14 @@ const meta = {
       control: "text",
       description: "Alternative text for accessibility",
     },
+    width: {
+      control: "number",
+      description: "Width of the icon in pixels",
+    },
+    height: {
+      control: "number",
+      description: "Height of the icon in pixels",
+    },
   },
 } satisfies Meta<typeof Icon>;
 
@@ -28,6 +36,8 @@ export const Default: Story = {
   args: {
     src: "/images/file.svg",
     alt: "File icon",
+    width: 50,
+    height: 50,
   },
 };
 

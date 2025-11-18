@@ -22,6 +22,14 @@ const meta = {
       control: "text",
       description: "Alternative text for the icon",
     },
+    iconWidth: {
+      control: "number",
+      description: "Width of the icon in pixels",
+    },
+    iconHeight: {
+      control: "number",
+      description: "Height of the icon in pixels",
+    },
     description: {
       control: "text",
       description: "Description of the service",
@@ -42,6 +50,8 @@ export const Washing: Story = {
     title: "Wassen",
     iconSrc: "/images/file.svg",
     iconAlt: "Washing icon",
+    iconWidth: 42,
+    iconHeight: 46,
     description: "Laat je was zorgeloos aan ons over voor een frisse en schone garderobe.",
     buttonLabel: "Meer",
     onClick: () => {

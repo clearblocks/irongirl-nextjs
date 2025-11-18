@@ -11,9 +11,154 @@
     "pricing": "Prijzen",
     "contact": "Contact"
   },
-  "homepage": {
-    "title": "Welkom bij Iron Girl",
-    "subtitle": "Jouw ondertitel hier",
-    "cta": "Begin Nu"
+  "header": {
+    "logoText": "Irongirl"
+  },
+  "hero": {
+    "line1": "Strijkservice",
+    "line2": "Vleuten/De Meern",
+    "line3": "Persoonlijke service",
+    "line4": "Snel,voordelig",
+    "line5": "en goed",
+    "phoneLabel": "Telefoon of WhatsApp",
+    "phoneNumber": "06-33401173"
+  },
+  "services": {
+    "washing": {
+      "title": "Wassen",
+      "description": "Laat je was zorgeloos aan ons over voor een frisse en schone garderobe.",
+      "buttonLabel": "Meer"
+    },
+    "ironing": {
+      "title": "Strijken",
+      "description": "Ontdek hoe gemakkelijk het is om je strijkwerk door Iron Girl te laten doen.",
+      "buttonLabel": "Meer"
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Neem contact op, vertel wat voor je kunnen doe en maak een afspraak.",
+      "buttonLabel": "Meer"
+    },
+    "pricing": {
+      "title": "Prijzen",
+      "description": "Wij verzorgen het strijken van vele producten, van kleding tot linnengoed, tegen een betaalbare prijs.",
+      "buttonLabel": "Meer"
+    }
+  },
+  "whatsappCta": {
+    "title": "Maak een afspraak via WhatsApp",
+    "buttonLabel": "Klik hier",
+    "phoneNumber": "+31612345678"
+  },
+  "about": {
+    "header": "Iron Girl Was -en Strijkservice",
+    "intro1": "Heb je het te druk en geen tijd om te wassen of strijken?",
+    "intro2": "Wij nemen het graag van je over.",
+    "intro3": "Is het strijken je te zwaar of heb je te veel strijkgoed?",
+    "intro4": "Wij verzorgen al jouw strijkgoed, van kleding tot bedden- en linnengoed.",
+    "intro5": "Ook als je het wassen liever aan ons wilt overlaten kun je op ons rekenen. Helemaal makkelijk is het natuurlijk om ons het wassen en strijken beide te laten doen.",
+    "intro6": "Zo maak voor jou het leven makkelijker, en hou jij meer tijd over voor leuke dingen. Je kunt altijd contact opnemen om je was- en strijkgoed langs te brengen bij ons in Vleuten."
+  },
+  "method": {
+    "header": "Onze werkwijze",
+    "steps": [
+      "Maak een afspraak: laat weten hoeveel strijkgoed je hebt",
+      "Lever je strijkgoed af bij mijn locale",
+      "Laat we weten producten je opgehangen en gevouwen terug wilt hebben",
+      "Wij vertel je wanner je het strijkgoed weer kunt ophalen",
+      "Wij zorg ervoor dat alles perfect netjes gestreken is",
+      "Bij ophalen is alles naar wens netjes gevouwen en opgehangen",
+      "Er is momenteel geen mogelijkheid voor een ophaal- en bezorgservice"
+    ],
+    "washingTitle": "Wassen",
+    "washingSteps": [
+      "Wasgoed ontvangen we graag in een zak, eventueel ook in een mand",
+      "Wit en kleur aparte was",
+      "30 graden",
+      "Drogen",
+      "Vouwen"
+    ],
+    "ironingTitle": "Strijken",
+    "ironingSteps": [
+      "Het is handig als je zelf kledinghangers kunt afgeven",
+      "Wij zorgen ervoor dat alles perfect netjes gestreken is",
+      "Binnen 3 tot dagen kun je het strijkgoed weer ophalen"
+    ]
+  },
+  "contact": {
+    "header": "Contact",
+    "callUs": "Bel ons",
+    "phoneNumber": "06-33401173",
+    "address": "Paddenstoelenlaan 15\n3451 PZ Vleuten",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Paddenstoelenlaan+15,+3451+PZ+Vleuten",
+    "formTitle": "Stuur een bericht",
+    "nameLabel": "Naam",
+    "emailLabel": "E- mailadres",
+    "phoneLabel": "Telefoon",
+    "messageLabel": "Bericht",
+    "submitButton": "Versturen",
+    "namePlaceholder": "",
+    "emailPlaceholder": "",
+    "phonePlaceholder": "",
+    "messagePlaceholder": "",
+    "nameRequired": "Naam is verplicht",
+    "emailRequired": "E-mailadres is verplicht",
+    "emailInvalid": "E-mailadres is niet geldig",
+    "messageRequired": "Bericht is verplicht",
+    "submitSuccess": "Bericht succesvol verzonden!",
+    "submitError": "Er is een fout opgetreden bij het verzenden van het bericht."
+  },
+  "pricing": {
+    "header": "Prijzen",
+    "paymentNote": "De betaling kan worden gedaan met een Tikkie",
+    "washing": {
+      "title": "Wassen",
+      "items": [
+        { "name": "Tot 6 kg", "price": "€16,50" },
+        { "name": "Elke extra kg", "price": "€2,50" }
+      ]
+    },
+    "ironingAdults": {
+      "title": "Strijken",
+      "subtitle": "Dames- en herenkleding",
+      "items": [
+        { "name": "Overhemd", "price": "€1,80" },
+        { "name": "Blouse", "price": "€1,80" },
+        { "name": "Blouse of overhemd korte mouwen", "price": "€1,80" },
+        { "name": "Colbert", "price": "€1,80" },
+        { "name": "Gilet", "price": "€1,80" },
+        { "name": "Rok", "price": "€1,80" },
+        { "name": "Korte broek", "price": "€1,80" }
+      ]
+    },
+    "ironingChildren": {
+      "subtitle": "Kinderkleding t/m maat 158",
+      "items": [
+        { "name": "Overhemd", "price": "€1,80" },
+        { "name": "Blouse", "price": "€1,80" },
+        { "name": "Blouse of overhemd korte mouwen", "price": "€1,80" },
+        { "name": "Colbert", "price": "€1,80" },
+        { "name": "Gilet", "price": "€1,80" },
+        { "name": "Rok", "price": "€1,80" },
+        { "name": "Korte broek", "price": "€1,80" }
+      ]
+    },
+    "linens": {
+      "subtitle": "Linnen- en beddengoed",
+      "items": [
+        { "name": "Laken 1-persoons", "price": "€2,20" },
+        { "name": "Laken 2-persoons", "price": "€3,00" },
+        { "name": "Dekbed 1-persoons", "price": "€2,50" },
+        { "name": "Dekbed 2-persoons", "price": "€3,70" },
+        { "name": "Kussensloop", "price": "€1,00" },
+        { "name": "Tafellaken", "price": "€3,00" },
+        { "name": "Tafelloper", "price": "€1,10" }
+      ]
+    }
+  },
+  "footer": {
+    "copyright": "© Copyright 2025 irongirl.nl",
+    "address": "Paddenstoelenlaan 15, 3451 PZ Vleuten",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Paddenstoelenlaan+15,+3451+PZ+Vleuten"
   }
 }

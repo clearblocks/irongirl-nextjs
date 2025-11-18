@@ -11,8 +11,16 @@ export interface IconProps {
    * Alternative text for the icon
    */
   alt: string;
+  /**
+   * Icon width in pixels
+   */
+  width?: number;
+  /**
+   * Icon height in pixels
+   */
+  height?: number;
 }
 
-export const Icon: React.FC<IconProps> = ({ src, alt }) => {
-  return <Image src={src} alt={alt} className="inline-block" />;
+export const Icon: React.FC<IconProps> = ({ src, alt, width = 50, height = 50 }) => {
+  return <Image src={src} alt={alt} width={width} height={height} className="inline-block" />;
 };
