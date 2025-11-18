@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 const Welcome = (): React.ReactElement => {
   return (
-    <div className="p-8 max-w-4xl mx-auto font-sans">
+    <div className="p-8 max-w-4xl mx-auto font-family-sans">
       <h1 className="text-4xl font-bold text-header mb-4">Welcome to Irongirl Component Library</h1>
 
       <p className="text-lg text-foreground mb-6">
@@ -111,9 +111,9 @@ import { LoginForm } from '@/components/organisms';`}
           <div>
             <h4 className="font-semibold text-foreground mb-2">Typography:</h4>
             <ul className="list-disc list-inside text-sm text-foreground">
-              <li>font-hero</li>
-              <li>font-header</li>
-              <li>font-sans</li>
+              <li>font-family-hero</li>
+              <li>font-family-header</li>
+              <li>font-family-sans</li>
             </ul>
           </div>
         </div>

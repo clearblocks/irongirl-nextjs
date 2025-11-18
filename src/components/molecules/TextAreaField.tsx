@@ -65,7 +65,7 @@ export const TextAreaField: React.FC<TextAreaFieldProps> = ({
         value={value}
         onChange={onChange}
       />
-      {hasError && <p className="text-sm text-red-500 font-sans mt-1">{errorMessage}</p>}
+      {hasError && <p className="text-sm text-red-500 font-family-sans mt-1">{errorMessage}</p>}
     </div>
   );
 };

@@ -50,11 +50,11 @@ export const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   return (
     <div className="bg-primary-light rounded-[30px] px-[10px] py-5 flex flex-col gap-[18px] items-center overflow-hidden w-full">
-      <h2 className="text-2xl font-semibold text-black font-sans shrink-0">{title}</h2>
+      <h2 className="text-2xl font-semibold text-black font-family-sans shrink-0">{title}</h2>
       <div className="shrink-0 relative flex items-center justify-center">
         <Icon src={iconSrc} alt={iconAlt} width={iconWidth} height={iconHeight} />
       </div>
-      <p className="text-base font-normal text-black font-sans text-center shrink-0 min-w-full">
+      <p className="text-base font-normal text-black font-family-sans text-center shrink-0 min-w-full">
         {description}
       </p>
       <Button label={buttonLabel} onClick={onClick} />

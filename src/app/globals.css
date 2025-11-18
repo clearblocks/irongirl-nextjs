@@ -20,8 +20,8 @@
   --color-header-400: var(--color-header-400);
 
   /* Typography - Font Families */
-  --font-family-hero: var(--font-family-hero);
   --font-family-sans: var(--font-family-base);
+  --font-family-hero: var(--font-family-hero);
   --font-family-header: var(--font-family-header);
 
   /* Typography - Font Sizes */

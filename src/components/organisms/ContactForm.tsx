@@ -138,14 +138,15 @@ export const ContactForm: React.FC = () => {
       />
 
       {submitStatus === "success" && (
-        <p className="text-green-600 text-sm font-sans">{t("submitSuccess")}</p>
+        <p className="text-green-600 text-sm font-family-sans">{t("submitSuccess")}</p>
       )}
 
       {submitStatus === "error" && (
-        <p className="text-red-600 text-sm font-sans">{t("submitError")}</p>
+        <p className="text-red-600 text-sm font-family-sans">{t("submitError")}</p>
       )}
 
       <Button
+        className="w-48 mx-auto"
         label={t("submitButton")}
         onClick={() => {}}
         disabled={isSubmitting}

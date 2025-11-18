@@ -25,9 +25,9 @@ export interface PricingTableProps {
 export const PricingTable: React.FC<PricingTableProps> = ({ title, subtitle, priceItems }) => {
   return (
     <div className="bg-primary-light rounded-[5px] px-[15px] py-5 flex flex-col gap-[18px] items-center overflow-hidden w-full">
-      {title && <h3 className="text-2xl font-semibold text-primary font-sans shrink-0">{title}</h3>}
+      {title && <h3 className="text-2xl font-semibold text-primary font-family-sans shrink-0">{title}</h3>}
       {subtitle && (
-        <h4 className="text-xl font-semibold text-primary font-sans shrink-0">{subtitle}</h4>
+        <h4 className="text-xl font-semibold text-primary font-family-sans shrink-0">{subtitle}</h4>
       )}
       <div className="flex flex-col gap-[10px] items-start w-full shrink-0">
         {priceItems.map((item, index) => (

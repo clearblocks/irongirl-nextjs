@@ -25,14 +25,14 @@ export function LanguageSwitcher(): React.ReactElement {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="font-sans text-sm text-foreground mr-2">{t("language")}:</span>
+      <span className="font-family-sans text-sm text-foreground mr-2">{t("language")}:</span>
       {routing.locales.map((loc) => (
         <button
           key={loc}
           onClick={() => {
             handleLocaleChange(loc);
           }}
-          className={`px-3 py-1 rounded font-sans text-sm transition-colors ${
+          className={`px-3 py-1 rounded font-family-sans text-sm transition-colors ${
             locale === loc
               ? "bg-primary text-white"
               : "bg-gray-200 text-foreground hover:bg-gray-300"

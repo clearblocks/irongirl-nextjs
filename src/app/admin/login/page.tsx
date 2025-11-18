@@ -46,7 +46,7 @@ export default function AdminLoginPage(): React.ReactElement {
     return (
       <div className="min-h-screen flex items-center justify-center bg-primary-light">
         <div className="text-center">
-          <p className="font-sans text-base text-foreground">Loading...</p>
+          <p className="font-family-sans text-base text-foreground">Loading...</p>
         </div>
       </div>
     );
@@ -57,12 +57,12 @@ export default function AdminLoginPage(): React.ReactElement {
       {/* Navigation */}
       <nav className="bg-white border-b border-gray-200 py-4 px-6">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <h1 className="font-hero text-2xl text-primary">IronGirl</h1>
+          <h1 className="font-family-hero text-2xl text-primary">IronGirl</h1>
           <div className="flex gap-6 items-center">
-            <Link href="/" className="font-sans text-base text-foreground hover:text-primary">
+            <Link href="/" className="font-family-sans text-base text-foreground hover:text-primary">
               Home
             </Link>
-            <Link href="/about" className="font-sans text-base text-foreground hover:text-primary">
+            <Link href="/about" className="font-family-sans text-base text-foreground hover:text-primary">
               About
             </Link>
             <LanguageSwitcher />
@@ -74,7 +74,7 @@ export default function AdminLoginPage(): React.ReactElement {
       <main className="flex-1 flex items-center justify-center bg-primary-light">
         <div className="w-full max-w-md mx-auto px-6">
           <div className="bg-white rounded-lg shadow-lg p-8">
-            <h2 className="font-hero text-3xl text-primary mb-6 text-center">Admin Login</h2>
+            <h2 className="font-family-hero text-3xl text-primary mb-6 text-center">Admin Login</h2>
 
             <form
               onSubmit={(e) => {
@@ -83,7 +83,7 @@ export default function AdminLoginPage(): React.ReactElement {
               className="space-y-6"
             >
               <div>
-                <label htmlFor="token" className="block font-sans text-base text-foreground mb-2">
+                <label htmlFor="token" className="block font-family-sans text-base text-foreground mb-2">
                   Admin Token
                 </label>
                 <Input
@@ -100,7 +100,7 @@ export default function AdminLoginPage(): React.ReactElement {
 
               {error && (
                 <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
-                  <p className="font-sans text-sm">{error}</p>
+                  <p className="font-family-sans text-sm">{error}</p>
                 </div>
               )}
 
@@ -114,13 +114,13 @@ export default function AdminLoginPage(): React.ReactElement {
             </form>
 
             <div className="mt-6 text-center">
-              <Link href="/" className="font-sans text-sm text-primary hover:text-primary/80">
+              <Link href="/" className="font-family-sans text-sm text-primary hover:text-primary/80">
                 &larr; Back to Home
               </Link>
             </div>
 
             <div className="mt-8 p-4 bg-blue-50 rounded-lg">
-              <p className="font-sans text-xs text-foreground">
+              <p className="font-family-sans text-xs text-foreground">
                 <strong>Note:</strong> Enter your admin token to access the protected admin area.
                 The token is configured in the server&apos;s environment variables.
               </p>
@@ -132,7 +132,7 @@ export default function AdminLoginPage(): React.ReactElement {
       {/* Footer */}
       <footer className="bg-foreground text-white py-8">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="font-sans text-base">&copy; 2025 IronGirl. All rights reserved.</p>
+          <p className="font-family-sans text-base">&copy; 2025 IronGirl. All rights reserved.</p>
         </div>
       </footer>
     </div>

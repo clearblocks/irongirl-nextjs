@@ -21,17 +21,17 @@ export const InNavigation: Story = {
     (Story) => (
       <nav className="bg-white border-b border-gray-200 py-4 px-6">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <h1 className="font-hero text-2xl text-primary">IronGirl</h1>
+          <h1 className="font-family-hero text-2xl text-primary">IronGirl</h1>
           <div className="flex gap-6 items-center">
             <button
               type="button"
-              className="font-sans text-base text-foreground hover:text-primary"
+              className="font-family-sans text-base text-foreground hover:text-primary"
             >
               Home
             </button>
             <button
               type="button"
-              className="font-sans text-base text-foreground hover:text-primary"
+              className="font-family-sans text-base text-foreground hover:text-primary"
             >
               About
             </button>

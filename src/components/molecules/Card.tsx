@@ -49,7 +49,7 @@ export const Card: React.FC<CardProps> = ({
 
   return (
     <div className={className}>
-      {title && <h3 className="font-header text-2xl font-bold text-header mb-4">{title}</h3>}
+      {title && <h3 className="font-family-header text-2xl font-bold text-header mb-4">{title}</h3>}
       <div className="text-foreground">{children}</div>
       {footer && <div className="mt-4 pt-4 border-t border-gray-200">{footer}</div>}
     </div>
